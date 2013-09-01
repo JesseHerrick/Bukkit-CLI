@@ -1,0 +1,100 @@
+2013-08-31 21:45:47 [INFO] Starting minecraft server version 1.6.2
+2013-08-31 21:45:47 [INFO] Loading properties
+2013-08-31 21:45:47 [WARNING] server.properties does not exist
+2013-08-31 21:45:47 [INFO] Generating new properties file
+2013-08-31 21:45:47 [INFO] Default game type: SURVIVAL
+2013-08-31 21:45:47 [INFO] Generating keypair
+2013-08-31 21:45:49 [INFO] Starting Minecraft server on *:25565
+2013-08-31 21:45:50 [INFO] This server is running CraftBukkit version git-Bukkit-1.6.2-R0.1-b2838jnks (MC: 1.6.2) (Implementing API version 1.6.2-R0.1)
+2013-08-31 21:45:50 [WARNING] Failed to load operators list: java.io.FileNotFoundException: ./ops.txt (No such file or directory)
+2013-08-31 21:45:50 [WARNING] Failed to load white-list: java.io.FileNotFoundException: ./white-list.txt (No such file or directory)
+2013-08-31 21:45:50 [INFO] Preparing level "world"
+2013-08-31 21:45:51 [INFO] Preparing start region for level 0 (Seed: 7816633417223369029)
+2013-08-31 21:45:52 [INFO] ----- Bukkit Auto Updater -----
+2013-08-31 21:45:52 [INFO] It appears that you're running a Beta Build, when you've specified in bukkit.yml that you prefer to run Recommended Builds.
+2013-08-31 21:45:52 [INFO] If you would like to be kept informed about new Beta Build releases, it is recommended that you change 'preferred-channel' in your bukkit.yml to 'beta'.
+2013-08-31 21:45:52 [INFO] With that set, you will be told whenever a new version is available for download, so that you can always keep up to date and secure with the latest fixes.
+2013-08-31 21:45:52 [INFO] If you would like to disable this warning, simply set 'suggest-channels' to false in bukkit.yml.
+2013-08-31 21:45:52 [INFO] ----- ------------------- -----
+2013-08-31 21:45:53 [INFO] Preparing spawn area: 4%
+2013-08-31 21:45:54 [INFO] Preparing spawn area: 7%
+2013-08-31 21:45:55 [INFO] Preparing spawn area: 9%
+2013-08-31 21:45:56 [INFO] Preparing spawn area: 16%
+2013-08-31 21:45:57 [INFO] Preparing spawn area: 23%
+2013-08-31 21:45:58 [INFO] Preparing spawn area: 28%
+2013-08-31 21:45:59 [INFO] Preparing spawn area: 34%
+2013-08-31 21:46:00 [INFO] Preparing spawn area: 40%
+2013-08-31 21:46:01 [INFO] Preparing spawn area: 45%
+2013-08-31 21:46:02 [INFO] Preparing spawn area: 51%
+2013-08-31 21:46:04 [INFO] Preparing spawn area: 55%
+2013-08-31 21:46:05 [INFO] Preparing spawn area: 60%
+2013-08-31 21:46:06 [INFO] Preparing spawn area: 65%
+2013-08-31 21:46:07 [INFO] Preparing spawn area: 71%
+2013-08-31 21:46:08 [INFO] Preparing spawn area: 77%
+2013-08-31 21:46:09 [INFO] Preparing spawn area: 81%
+2013-08-31 21:46:10 [INFO] Preparing spawn area: 87%
+2013-08-31 21:46:11 [INFO] Preparing spawn area: 94%
+2013-08-31 21:46:12 [INFO] Preparing start region for level 1 (Seed: 7816633417223369029)
+2013-08-31 21:46:13 [INFO] Preparing spawn area: 5%
+2013-08-31 21:46:14 [INFO] Preparing spawn area: 16%
+2013-08-31 21:46:15 [INFO] Preparing spawn area: 26%
+2013-08-31 21:46:16 [INFO] Preparing spawn area: 31%
+2013-08-31 21:46:17 [INFO] Preparing spawn area: 36%
+2013-08-31 21:46:18 [INFO] Preparing spawn area: 43%
+2013-08-31 21:46:19 [INFO] Preparing spawn area: 46%
+2013-08-31 21:46:20 [INFO] Preparing spawn area: 53%
+2013-08-31 21:46:21 [INFO] Preparing spawn area: 57%
+2013-08-31 21:46:22 [INFO] Preparing spawn area: 62%
+2013-08-31 21:46:23 [INFO] Preparing spawn area: 71%
+2013-08-31 21:46:25 [INFO] Preparing spawn area: 78%
+2013-08-31 21:46:26 [INFO] Preparing spawn area: 85%
+2013-08-31 21:46:27 [INFO] Preparing spawn area: 92%
+2013-08-31 21:46:28 [INFO] Preparing start region for level 2 (Seed: 7816633417223369029)
+2013-08-31 21:46:29 [INFO] Preparing spawn area: 24%
+2013-08-31 21:46:30 [INFO] Preparing spawn area: 48%
+2013-08-31 21:46:31 [INFO] Preparing spawn area: 70%
+2013-08-31 21:46:32 [INFO] Preparing spawn area: 96%
+2013-08-31 21:46:32 [INFO] Done (42.030s)! For help, type "help" or "?"
+2013-08-31 21:46:35 [WARNING] Can't keep up! Did the system time change, or is the server overloaded?
+2013-08-31 21:47:12 [INFO] CONSOLE: Stopping the server..[m
+2013-08-31 21:47:12 [INFO] Stopping server
+2013-08-31 21:47:12 [WARNING] DSCT: Socket closed
+2013-08-31 21:47:12 [INFO] Saving players
+2013-08-31 21:47:12 [INFO] Closing listening thread
+2013-08-31 21:47:12 [INFO] Saving worlds
+2013-08-31 21:47:12 [INFO] Saving chunks for level 'world'/Overworld
+2013-08-31 21:47:13 [INFO] Saving chunks for level 'world_nether'/Nether
+2013-08-31 21:47:13 [INFO] Saving chunks for level 'world_the_end'/The End
+2013-08-31 21:47:13 [INFO] Stopping server
+2013-08-31 21:47:13 [INFO] Saving players
+2013-08-31 21:47:32 [INFO] Starting minecraft server version 1.6.2
+2013-08-31 21:47:32 [INFO] Loading properties
+2013-08-31 21:47:32 [INFO] Default game type: SURVIVAL
+2013-08-31 21:47:32 [INFO] Generating keypair
+2013-08-31 21:47:34 [INFO] Starting Minecraft server on *:25565
+2013-08-31 21:47:35 [INFO] This server is running CraftBukkit version git-Bukkit-1.6.2-R0.1-b2838jnks (MC: 1.6.2) (Implementing API version 1.6.2-R0.1)
+2013-08-31 21:47:35 [INFO] Preparing level "world"
+2013-08-31 21:47:36 [INFO] Preparing start region for level 0 (Seed: 7816633417223369029)
+2013-08-31 21:47:37 [INFO] ----- Bukkit Auto Updater -----
+2013-08-31 21:47:37 [INFO] It appears that you're running a Beta Build, when you've specified in bukkit.yml that you prefer to run Recommended Builds.
+2013-08-31 21:47:37 [INFO] If you would like to be kept informed about new Beta Build releases, it is recommended that you change 'preferred-channel' in your bukkit.yml to 'beta'.
+2013-08-31 21:47:37 [INFO] With that set, you will be told whenever a new version is available for download, so that you can always keep up to date and secure with the latest fixes.
+2013-08-31 21:47:37 [INFO] If you would like to disable this warning, simply set 'suggest-channels' to false in bukkit.yml.
+2013-08-31 21:47:37 [INFO] ----- ------------------- -----
+2013-08-31 21:47:37 [INFO] Preparing spawn area: 13%
+2013-08-31 21:47:38 [INFO] Preparing spawn area: 57%
+2013-08-31 21:47:39 [INFO] Preparing start region for level 1 (Seed: 7816633417223369029)
+2013-08-31 21:47:40 [INFO] Preparing spawn area: 59%
+2013-08-31 21:47:40 [INFO] Preparing start region for level 2 (Seed: 7816633417223369029)
+2013-08-31 21:47:40 [INFO] Server permissions file permissions.yml is empty, ignoring it
+2013-08-31 21:47:41 [INFO] Done (5.413s)! For help, type "help" or "?"
+2013-08-31 21:48:04 [INFO] CONSOLE: Stopping the server..[m
+2013-08-31 21:48:04 [INFO] Stopping server
+2013-08-31 21:48:04 [WARNING] DSCT: Socket closed
+2013-08-31 21:48:04 [INFO] Closing listening thread
+2013-08-31 21:48:04 [INFO] Saving players
+2013-08-31 21:48:04 [INFO] Saving worlds
+2013-08-31 21:48:04 [INFO] Saving chunks for level 'world'/Overworld
+2013-08-31 21:48:07 [INFO] Saving chunks for level 'world_nether'/Nether
+2013-08-31 21:48:07 [INFO] Saving chunks for level 'world_the_end'/The End
+2013-08-31 21:48:07 [INFO] Stopping server

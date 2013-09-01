@@ -12,7 +12,7 @@ module Bukkit
 			Bukkit::start
 		when "beta", "b"
 			puts "Downloading CraftBukkit Beta build...\n"
-			%x(curl -L http://cbukk.it/craftbukkit-beta.jar)
+			%x(curl -L http://cbukk.it/craftbukkit-beta.jar > craftbukkit.jar)
 			puts "\nSuccessfully downloaded Beta build."
 			Bukkit::start
 		when "dev", "development", "d"
