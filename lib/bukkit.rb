@@ -12,9 +12,9 @@ module Bukkit
 
 # First arg control flow
 	case opt1
-	when "-v", "--version"
+	when "-v", "--version", "version"
 		puts Bukkit::VERSION
-	when "-h", "--help"
+	when "-h", "--help", "help"
 		Bukkit::help
 	when "new"
 		Bukkit::new
@@ -23,6 +23,11 @@ module Bukkit
 	when "install"
 		Bukkit::install
 	else
-		puts "'#{opt1}' is not a command."
+		if opt1.nil?
+			puts "You didn't enter a command.\n"
+			Bukkit::help
+		else
+			puts "'#{opt1}' is not a command."
+		end
 	end
 end
