@@ -38,6 +38,5 @@ def create_folder
 	else
 		Dir.mkdir(opt2.to_s)
 		Dir.chdir(opt2.to_s)
-#		%x(cd #{opt2})
 	end
 end

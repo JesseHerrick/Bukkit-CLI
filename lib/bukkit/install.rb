@@ -3,11 +3,17 @@ require 'json'
 
 module Bukkit
 	def self.install
-		opt3 = ARGV[2]
-		if opt3.nil?
-			abort("")
+		opt2 = ARGV[1]
+#		if opt3.nil?
+#			abort("USAGE: bukkit install PLUGIN_NAME") 
+#		else
+#			nil
+#		end
 
-		plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{opt3}").read)
-		puts plugins_api[""][1]
+		plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{opt2}").read)
+		download = plugins_api["versions"][0]["download"]
+		filename = plugins_api["versions"][0]["filename"]
+
+		puts download
 	end
 end
