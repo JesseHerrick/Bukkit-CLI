@@ -1,5 +1,6 @@
 module Bukkit
 	def self.new
+		create_folder
 		puts "  Do want the recommended build, beta build, or dev build?"
 		print "  rb, beta, dev? "
 		q1 = $stdin.gets.chomp
@@ -21,7 +22,22 @@ module Bukkit
 			puts "\nSuccessfully downloaded Development build."
 			Bukkit::start
 		else
-			puts "  \"#{q1}\" is not an option."
+			if q1.length > 0
+				abort("  \"#{q1}\" is not an option.")
+			else
+				abort("  You didn't enter an option.")
+			end
 		end
+	end
+end
+
+def create_folder
+	opt2 = ARGV[1]
+	if opt2.nil?
+		abort("  Server name not specified.\n  USAGE: 'bukkit new SERVERNAME'")
+	else
+		Dir.mkdir(opt2.to_s)
+		Dir.chdir(opt2.to_s)
+#		%x(cd #{opt2})
 	end
 end

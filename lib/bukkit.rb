@@ -1,4 +1,6 @@
 # Orderly and Alphabetical requires h, i, n, s, v
+require 'rubygems'
+
 require 'bukkit/help'
 require 'bukkit/install'
 require 'bukkit/new'
@@ -7,8 +9,6 @@ require 'bukkit/version'
 
 module Bukkit
 	opt1 = ARGV[0]
-	opt2 = ARGV[1]
-	opt3 = ARGV[2]
 
 # First arg control flow
 	case opt1
