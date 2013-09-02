@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency('json')
   spec.add_dependency('archive-zip')
+  spec.add_dependency('launchy')
 end
