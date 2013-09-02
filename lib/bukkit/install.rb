@@ -1,10 +1,10 @@
 require 'open-uri'
 require 'json'
-require 'zip'
+require 'archive/zip'
 
 module Bukkit
 	def self.install
-		opt2 = ARGV[1]
+		opt2 = ARGV[1].downcase
 		if opt2.nil?
 			abort("USAGE: bukkit install PLUGIN_NAME")
 		end
@@ -16,7 +16,15 @@ module Bukkit
 			Dir.chdir("plugins")
 			%x(curl -L #{download} > #{filename})
 			if File.extname(filename) == ".zip"
-				puts "Extract! Extract!!!"
+				# Extract Zip Archive
+				Archive::Zip.extract(filename, opt2)
+				Dir.chdir(opt2)
+				jarfiles = Dir.glob("*.jar")
+				jarfiles.each do |jar|
+					FileUtils.mv(jar, "../#{jar}")
+				end				FileUtils.rm(filename)
+				FileUtils.rm_rf('#{opt2}')
+				puts "Plugin successfully installed!"
 			else
 				puts "It's not a zip! It's installed!"
 			end

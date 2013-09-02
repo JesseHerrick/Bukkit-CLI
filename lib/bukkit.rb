@@ -28,6 +28,7 @@ module Bukkit
 			Bukkit::help
 		else
 			puts "'#{opt1}' is not a command."
+			puts "Run 'bukkit --help' for a list of commands."
 		end
 	end
 end
