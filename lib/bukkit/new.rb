@@ -36,7 +36,11 @@ def create_folder
 	if opt2.nil?
 		abort("  Server name not specified.\n  USAGE: 'bukkit new SERVERNAME'")
 	else
-		Dir.mkdir(opt2.to_s)
-		Dir.chdir(opt2.to_s)
+		begin
+			Dir.mkdir(opt2.to_s)
+			Dir.chdir(opt2.to_s)
+		rescue Errno::EEXIST
+			abort("  Directory already exists. Try a different name.")
+		end
 	end
 end
