@@ -47,16 +47,6 @@ def ask_website
 	if ARGV.include? "--nowebsite"
 		abort
 	else
-		print "Would you like to visit the plugin's website? (y/n) "
-		q2 = $stdin.gets.chomp
-		case q2
-		when "y", "yes"
-			puts "Opening website in default browser."
-			Launchy.open($website)
-		when "n", "no"
-			abort("If you change your mind.\nRun the command 'bukkit website PLUGIN_NAME'.")
-		else
-			puts "'#{q2}' is not an option."
-		end
+		Bukkit::website
 	end
 end

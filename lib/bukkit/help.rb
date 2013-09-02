@@ -7,8 +7,9 @@ module Bukkit
 		puts "      bukkit start"
 		puts "    Install a plugin:"
 		puts "      bukkit install PLUGIN_NAME"
+		puts "    Open a plugin's website:"
+		puts "      bukkit website PLUGIN_NAME"
 		# Put Last
-		puts "\n"
 		puts "    Show this page:"
 		puts "      bukkit --help OR bukkit -h"
 		puts "    Get version:"

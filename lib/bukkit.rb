@@ -6,6 +6,7 @@ require 'bukkit/install'
 require 'bukkit/new'
 require 'bukkit/start'
 require 'bukkit/version'
+require 'bukkit/website'
 
 module Bukkit
 	opt1 = ARGV[0]
@@ -22,6 +23,8 @@ module Bukkit
 		Bukkit::start
 	when "install"
 		Bukkit::install
+	when "website"
+		Bukkit::website
 	else
 		if opt1.nil?
 			puts "You didn't enter a command.\n"
