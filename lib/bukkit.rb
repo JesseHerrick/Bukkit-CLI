@@ -26,7 +26,7 @@ module Bukkit
 	when "install"
 		Bukkit::install
 	when "website"
-		Bukkit::website
+		Bukkit::website(ARGV[1].downcase)
 	when "update"
 		Bukkit::update
 	else
