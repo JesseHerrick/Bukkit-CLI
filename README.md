@@ -7,8 +7,8 @@ A command line wrapper for CraftBukkit.
 
 ###Quick Start: 
 ```terminal
-gem install bukkit
-bukkit new my-awesome-server-name
+~ $ gem install bukkit
+~ $ bukkit new my-awesome-server-name
 ```
 
 ###Commands:
