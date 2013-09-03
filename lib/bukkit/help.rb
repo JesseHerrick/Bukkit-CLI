@@ -13,6 +13,9 @@ module Bukkit
 		puts "    Open a plugin's website:"
 		puts "      bukkit website PLUGIN_NAME"
 		puts "\n"
+		puts "    Update your version of CraftBukkit:"
+		puts "      bukkit update"
+		puts "\n"
 		# Put Last
 		puts "    Show this page:"
 		puts "      bukkit --help OR bukkit -h"

@@ -1,10 +1,12 @@
 # Orderly and Alphabetical requires h, i, n, s, v
 require 'rubygems'
 
+require 'bukkit/download'
 require 'bukkit/help'
 require 'bukkit/install'
 require 'bukkit/new'
 require 'bukkit/start'
+require 'bukkit/update'
 require 'bukkit/version'
 require 'bukkit/website'
 
@@ -25,6 +27,8 @@ module Bukkit
 		Bukkit::install
 	when "website"
 		Bukkit::website
+	when "update"
+		Bukkit::update
 	else
 		if opt1.nil?
 			puts "You didn't enter a command.\n"
