@@ -1,4 +1,3 @@
-# TODO update command
 module Bukkit
-	VERSION = "0.1.1"
+	VERSION = "Bukkit-CLI v0.1.3"
 end

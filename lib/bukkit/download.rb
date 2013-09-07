@@ -2,8 +2,12 @@ require 'open-uri'
 
 module Bukkit
 	def self.download(filename, uri)
-		File.open("#{filename}", "wb") do |file|
-			file.write open("#{uri}").read
+		begin
+			File.open("#{filename}", "wb") do |file|
+				file.write open("#{uri}").read
+			end
+		rescue Errno::ENOENT
+			abort "Error! No internet connection."
 		end
 	end
 end
