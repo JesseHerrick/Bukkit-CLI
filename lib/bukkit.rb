@@ -16,7 +16,7 @@ module Bukkit
 # First arg control flow
 	case opt1
 	when "-v", "--version", "version"
-		puts Bukkit::VERSION
+		puts Bukkit::VERSION_FULL
 	when "-h", "--help", "help"
 		Bukkit::help
 	when "new"
