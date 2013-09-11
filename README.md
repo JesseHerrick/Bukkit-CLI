@@ -19,3 +19,12 @@ A command line wrapper for CraftBukkit.
 `bukkit install pluginname` Installs a new plugin. As long as it is on [dev.bukkit.org](http://dev.bukkit.org/).
 
 `bukkit website pluginname` Opens the website of a plugin.
+
+`bukkit update` Get's latest version of CraftBukkit.
+
+`bukkit [-[-h]elp]` Displays help for commands.
+
+`bukkit [-[-v]ersion]` Gives current Bukkit CLI version
+
+###Prerequisites:
+
