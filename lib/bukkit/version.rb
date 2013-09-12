@@ -1,4 +1,4 @@
 module Bukkit
-	VERSION = "0.1.4"
+	VERSION = "1.0.0"
 	VERSION_FULL = "Bukkit-CLI v#{VERSION}"
 end

@@ -23,10 +23,8 @@ module Bukkit
 			Bukkit::start
 		else
 			if q1.length > 0
-				Bukkit::Help.new
 				abort("  \"#{q1}\" is not an option.")
 			else
-				Bukkit::Help.new
 				abort("  You didn't enter an option.")
 			end
 		end

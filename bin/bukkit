@@ -2,4 +2,58 @@
 
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 
+require 'rubygems'
+require 'commander/import'
+
 require 'bukkit.rb'
+
+program :version, Bukkit::VERSION
+program :description, 'A Command Line Interface for CraftBukkit.'
+
+command :start do |c|
+  c.syntax = 'bukkit start, [options]'
+  c.summary = ''
+  c.description = "Start the bukkit server. (Must be in server's root)"
+  c.example 'description', 'Start the server.'
+  c.action do |args, options|
+    puts "Start the server!"
+  end
+end
+
+command :install do |c|
+  c.syntax = 'bukkit install, [options]'
+  c.summary = 'Install a new bukkit plugin.'
+  c.description = 'Installs a new bukkit plugin. Must be on dev.bukkit.org. (can also be a zip!)'
+  c.example 'description', 'bukkit install worldedit --nowebsite'
+  c.option '--nowebsite', "Doesn't ask for website after install."
+  c.action do |args, options|
+    if options.nowebsite == true
+    	Bukkit::Install.normal(args.shift, true)
+    else
+    	Bukkit::Install.normal(args.shift)
+    end
+  end
+end
+
+command :website do |c|
+  c.syntax = 'bukkit website, [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    # Do something or c.when_called Bukkit::Commands::Website,
+  end
+end
+
+command :update do |c|
+  c.syntax = 'bukkit update [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    # Do something or c.when_called Bukkit::Commands::Update
+  end
+end
+
