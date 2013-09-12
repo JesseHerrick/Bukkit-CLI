@@ -11,6 +11,7 @@ module Bukkit
 			Launchy.open(website)
 		rescue OpenURI::HTTPError
 			puts "  Plugin not found.\n  Make sure you have the name correct."
+			Bukkit::Help.website
 		end
 	end
 end

@@ -1,4 +1,4 @@
-# Orderly and Alphabetical requires h, i, n, s, v
+# Orderly and Alphabetical Require Statements
 require 'rubygems'
 
 require 'bukkit/download'
@@ -15,10 +15,10 @@ module Bukkit
 
 # First arg control flow
 	case opt1
-	when "-v", "--version", "version"
+	when "-v", "--version", "version", "v"
 		puts Bukkit::VERSION_FULL
-	when "-h", "--help", "help"
-		Bukkit::help
+	when "-h", "--help", "help", "h"
+		Bukkit::Help.all
 	when "new"
 		Bukkit::new
 	when "start"
@@ -32,10 +32,11 @@ module Bukkit
 	else
 		if opt1.nil?
 			puts "You didn't enter a command.\n"
-			Bukkit::help
+			Bukkit::Help.all
 		else
 			puts "'#{opt1}' is not a command."
 			puts "Run 'bukkit --help' for a list of commands."
+			Bukkit::Help.all
 		end
 	end
 end

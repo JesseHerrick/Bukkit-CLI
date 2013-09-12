@@ -6,7 +6,7 @@ require 'launchy'
 module Bukkit
 	def self.install
 		$opt2 = ARGV[1].downcase
-		abort("USAGE: bukkit install PLUGIN_NAME") if $opt2.nil?
+		abort(Bukkit::Help.install) if $opt2.nil?
 		begin
 			plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{$opt2}").read)
 			website = plugins_api["website"]

@@ -27,6 +27,7 @@ module Bukkit
 			end
 		rescue
 			puts "Uh oh! Something failed. Please report what you were doing at the time of this bug, and any other info you have at: https://github.com/JesseHerrick/bukkit/issues/new"
+			Bukkit::Help.update
 		end
 	end
 end

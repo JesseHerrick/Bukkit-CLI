@@ -1,26 +1,51 @@
 module Bukkit
-	def self.help
-		puts "  Commands:"
-		puts "    Create new server:"
-		puts "      bukkit new SERVER_NAME"
-		puts "\n"
-		puts "    Start the server:"
-		puts "      bukkit start"
-		puts "\n"
-		puts "    Install a plugin:"
-		puts "      bukkit install PLUGIN_NAME"
-		puts "\n"
-		puts "    Open a plugin's website:"
-		puts "      bukkit website PLUGIN_NAME"
-		puts "\n"
-		puts "    Update your version of CraftBukkit:"
-		puts "      bukkit update"
-		puts "\n"
-		# Put Last
-		puts "    Show this page:"
-		puts "      bukkit --help OR bukkit -h"
-		puts "\n"
-		puts "    Get version:"
-		puts "      bukkit --version OR bukkit -v"
+	class Help
+
+		# All Help Commands
+
+		def self.all
+			puts "Usage: bukkit COMMAND [OPTIONS]"
+			puts ""
+			puts "COMMANDS:"
+			
+			new
+			start
+			install
+			website
+			update
+			help
+			version
+		end
+
+		# Individual Help Commands
+
+		def self.new
+			puts "    USAGE: bukkit new my-awesome-server-name"
+			puts "        Creates a new server."
+		end
+		def self.start
+			puts "    USAGE: bukkit start"
+			puts "        Starts up your server. Must be run in the server's root directory."
+		end
+		def self.install
+			puts "    USAGE: bukkit install pluginname"
+			puts "        Installs a new plugin. As long as it is on http://dev.bukkit.org."
+		end
+		def self.website
+			puts "    USAGE: bukkit website pluginname"
+			puts "        Opens the website of a plugin."
+		end
+		def self.update
+			puts "    USAGE: bukkit update"
+			puts "        Get's latest version of CraftBukkit."
+		end
+		def self.help
+			puts "    USAGE: bukkit [-[-h]elp]"
+			puts "        Displays help for commands."
+		end
+		def self.version
+			puts "    USAGE: bukkit [-[-v]ersion]"
+			puts "        Gives current Bukkit CLI version"
+		end
 	end
 end
