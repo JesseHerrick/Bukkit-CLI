@@ -7,8 +7,7 @@ module Bukkit
 				file.write open("#{uri}").read
 			end
 		rescue Errno::ENOENT
-			Bukkit::Help.download
-			abort "Error! No internet connection."
+			abort "ERROR: No internet connection."
 		end
 	end
 end

@@ -8,24 +8,68 @@ require 'commander/import'
 require 'bukkit.rb'
 
 program :version, Bukkit::VERSION
-program :description, 'A Command Line Interface for CraftBukkit.'
+program :description, "A Command Line Interface for CraftBukkit."
+
+command :new do |c|
+	c.syntax = "bukkit new my-awesome-server-name [options]"
+	c.summary = "Create a new Bukkit server."
+	c.description = "Create a new Bukkit server with the given name."
+	c.example "Creates a new server with the name 'my-awesome-server-name'.", "bukkit new my-awesome-server-name"
+	c.option "--rb", "Create a new server with the recomended build."
+	c.option "--beta", "Create a new server with the beta build."
+	c.option "--dev", "Crate a new server with the dev build."
+	# TODO: Those are bools, pass the t/f values to a case statement then pass that to Bukkit::new
+	c.action do |args, options|
+    # Make 'dir' = to first arg
+    dir = args.shift
+
+		if options.rb == true
+			build = "rb"
+		elsif options.beta == true
+			build = "beta"
+		elsif options.dev == true
+			build = "dev"
+		else
+			build = ask "What build would you like? (rb/beta/dev)"
+			case build.downcase
+			when "rb", "recommended", "r"
+				build = "rb"
+			when "beta", "b"
+				build = "beta"
+			when "dev", "d", "developer"
+				build = "dev"
+			else
+				abort "ERROR: Invalid option '#{build}'\nTry `bukkit new --help`"
+			end
+		end
+    begin
+		  Bukkit::new(build, dir)
+    rescue TypeError
+      abort "ERROR: Server name not specified.\nTry `bukkit new --help`"
+    end
+	end
+end
 
 command :start do |c|
-  c.syntax = 'bukkit start, [options]'
-  c.summary = ''
+  c.syntax = "bukkit start"
+  c.summary = "Start the server."
   c.description = "Start the bukkit server. (Must be in server's root)"
-  c.example 'description', 'Start the server.'
+  c.example "description", "Start the server."
   c.action do |args, options|
-    puts "Start the server!"
+    puts "Starting the server!"
   end
 end
 
 command :install do |c|
-  c.syntax = 'bukkit install, [options]'
-  c.summary = 'Install a new bukkit plugin.'
-  c.description = 'Installs a new bukkit plugin. Must be on dev.bukkit.org. (can also be a zip!)'
-  c.example 'description', 'bukkit install worldedit --nowebsite'
-  c.option '--nowebsite', "Doesn't ask for website after install."
+  c.syntax = "bukkit install my-favorite-plugin [options]"
+  c.summary = "Install a new bukkit plugin."
+  c.description = "Installs a new bukkit plugin. Must be on dev.bukkit.org. (can also be a zip!)"
+
+  c.example "Installs the plugin 'my-favorite-plugin' (will ask for website when done).", "bukkit install my-favorite-plugin"
+
+  c.example "Installs the plugin 'my-favorite-plugin' and doesn't ask to open it's website", "bukkit install my-favorite-plugin --nowebsite"
+  c.option "--nowebsite", "Doesn't ask for website after install."
+  
   c.action do |args, options|
     if options.nowebsite == true
     	Bukkit::Install.normal(args.shift, true)
@@ -36,22 +80,22 @@ command :install do |c|
 end
 
 command :website do |c|
-  c.syntax = 'bukkit website, [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
+  c.syntax = "bukkit website [options]"
+  c.summary = ""
+  c.description = ""
+  c.example "description", "command example"
+  c.option "--some-switch", "Some switch that does something"
   c.action do |args, options|
     # Do something or c.when_called Bukkit::Commands::Website,
   end
 end
 
 command :update do |c|
-  c.syntax = 'bukkit update [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
+  c.syntax = "bukkit update [options]"
+  c.summary = ""
+  c.description = ""
+  c.example "description", "command example"
+  c.option "--some-switch", "Some switch that does something"
   c.action do |args, options|
     # Do something or c.when_called Bukkit::Commands::Update
   end
