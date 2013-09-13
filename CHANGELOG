@@ -3,4 +3,8 @@ v0.1.1: Major bug fix.
 v0.1.2: 'website' command fixed.
 v0.1.3: Minor bug fixes.
 v0.1.4: Much better documentation.
+<<<<<<< HEAD
 v1.0.0: Total revamp of the CLI and docs. Definitely v1.0.
+=======
+v1.0.0: Total revamp of Bukkit-CLI. 
+>>>>>>> 24509404e9596e6df54abde38c03411b73ade0db
