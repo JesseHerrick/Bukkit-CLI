@@ -12,19 +12,11 @@ A command line wrapper for CraftBukkit.
 ```
 
 ###Commands:
-`bukkit new my-awesome-server-name` Creates a new server.
-
-`bukkit start` Starts up your server. Must be run in the server's root directory.
-
-`bukkit install pluginname` Installs a new plugin. As long as it is on [dev.bukkit.org](http://dev.bukkit.org/).
-
-`bukkit website pluginname` Opens the website of a plugin.
-
-`bukkit update` Get's latest version of CraftBukkit.
-
-`bukkit [-[-h]elp]` Displays help for commands.
-
-`bukkit [-[-v]ersion]` Gives current Bukkit CLI version
+TODO: Document current commands.
 
 ###Prerequisites:
 
+* [Ruby](https://www.ruby-lang.org/en/downloads/) ([RVM](http://rvm.io/) - for Linux/Mac and [RubyInstaller](http://rubyinstaller.org/) - Windows)
+  * `2.0.0` (recommended!)
+  * `1.9.3` (go right ahead)
+  * `other versions` (may or may not work, if you find a bug though [report it!](https://github.com/JesseHerrick/bukkit/issues/new))
