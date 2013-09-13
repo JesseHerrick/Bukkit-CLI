@@ -3,15 +3,24 @@ require 'json'
 require 'launchy'
 
 module Bukkit
-	def self.website(plugin_name)
-		begin
-			plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin_name}").read)
-			website = plugins_api["website"]
-			puts "Opening #{plugin_name}'s website in your default browser."
-			Launchy.open(website)
-		rescue OpenURI::HTTPError
-			puts "  Plugin not found.\n  Make sure you have the name correct."
-			Bukkit::Help.website
-		end
-	end
+   def self.website(plugin)
+        begin
+    	    plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
+    	    website = plugins_api["website"]
+    	    puts "Opening the plugin's website in your default browser..."
+    	    Launchy.open(website)
+    	rescue OpenURI::HTTPError
+    	    puts "ERROR: Plugin not found.\nMake sure you have the name correct.\nTry `bukkit website --help`"
+    	    Bukkit::Help.website
+    	rescue
+    	    puts "ERROR: Plugin name is undefined."
+	   end
+    end
+
+    def self.url(plugin)
+        plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
+        website = plugins_api["website"]
+        say "\n#{plugin}'s website URL is #{website}."
+        puts ""
+    end
 end
