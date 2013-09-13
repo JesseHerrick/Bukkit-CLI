@@ -1,4 +1,4 @@
-bukkit
+Bukkit-CLI
 ======
 
 A command line wrapper for CraftBukkit.
@@ -32,3 +32,5 @@ __To View Command Options run:__ `bukkit [command] [options: --help, -h]`
   * `2.0.0` (recommended!)
   * `1.9.3` (go right ahead)
   * `other versions` (may or may not work, if you find a bug though [report it!](https://github.com/JesseHerrick/bukkit/issues/new))
+* [Java](http://java.com/en/download/manual.jsp)
+  * All Versions Allowed by [Bukkit](https://github.com/Bukkit/Bukkit).
