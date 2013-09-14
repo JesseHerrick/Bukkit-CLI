@@ -4,3 +4,4 @@ v0.1.2: 'website' command fixed.
 v0.1.3: Minor bug fixes.
 v0.1.4: Much better documentation.
 v1.0.0: Total revamp of the CLI and docs. Definitely v1.0.
+v1.0.1: Got rid of the old docs.
