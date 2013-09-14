@@ -3,7 +3,7 @@ Bukkit-CLI
 
 A Bukkit Server command line interface.
 
-##Features (see [commands](https://github.com/JesseHerrick/Bukkit-CLI/blob/master/README.md#commands) for more details):
+##Features (see [commands](https://github.com/JesseHerrick/Bukkit-CLI/blob/master/README.md#commands) for more details)
 * Automatically creates a new server (your choice of build: rb, beta, or dev) with a simple command.
 * Plugin manager. No more downloading and copying files.
 * Update to the most recent build of your choice.
