@@ -47,6 +47,6 @@ To file a feature request just create an issue [here.](https://github.com/JesseH
 
 ##Contributing:
 
-To contribute to this awesome project just [fork it!](https://github.com/JesseHerrick/Bukkit)
+To contribute to this awesome project just [fork it!](https://github.com/JesseHerrick/Bukkit-CLI/fork)
 
 Please follow the [Ruby Styleguide](https://github.com/styleguide/ruby). If you have any questions please feel free to [email me.](mailto:school@jessegrant.net)
