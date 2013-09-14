@@ -40,3 +40,13 @@ __To View Command Options run:__ `bukkit [command] [options: --help, -h]`
   * `other versions` (may or may not work, if you find a bug though [report it!](https://github.com/JesseHerrick/bukkit/issues/new))
 * [Java](http://java.com/en/download/manual.jsp)
   * All Versions Allowed by [Bukkit](https://github.com/Bukkit/Bukkit).
+
+##Feature Requests:
+
+To file a feature request just create an issue [here.](https://github.com/JesseHerrick/Bukkit-CLI/issues/new) If your request makes sense (please write with the best grammar you can) then I'll get to work right away!
+
+##Contributing:
+
+To contribute to this awesome project just [fork it!](https://github.com/JesseHerrick/Bukkit)
+
+Please follow the [Ruby Styleguide](https://github.com/styleguide/ruby). If you have any questions please feel free to [email me.](mailto:school@jessegrant.net)
