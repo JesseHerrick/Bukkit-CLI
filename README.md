@@ -22,7 +22,7 @@ __To View Command Options run:__ `bukkit [command] [options: --help, -h]`
 
 `bukkit [--help, -h]` Display global help.
 
-`bukkit install` Install a new bukkit plugin.
+`bukkit install my-favorite-plugin` Install a new bukkit plugin.
 
 `bukkit new my-awesome-server-name [options: --rb, --beta, --dev]` Create a new Bukkit server.
 
