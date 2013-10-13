@@ -72,9 +72,9 @@ command :install do |c|
   
   c.action do |args, options|
     if options.nowebsite == true
-    	Bukkit::Install.normal(args.shift, true)
+    	Bukkit::Install.normal(args.shift.downcase, true)
     else
-    	Bukkit::Install.normal(args.shift)
+    	Bukkit::Install.normal(args.shift.downcase)
     end
   end
 end

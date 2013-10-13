@@ -2,12 +2,13 @@ require 'open-uri'
 require 'json'
 require 'archive/zip'
 require 'launchy'
+require 'colorize'
 
 module Bukkit
 	class Install
 		def self.normal(plugin, nowebsite = false)
 			# Check if in root
-			abort "ERROR: Not in server's root directory.\nTry `bukkit new my-awesome-server-name`." if Bukkit::Check.root? == false
+			abort "ERROR:".red + " Not in server's root directory.\nTry `bukkit new my-awesome-server-name`.".yellow if Bukkit::Check.root? == false
 
 			# BukGet API for Plugin Installs
 			plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
@@ -24,8 +25,11 @@ module Bukkit
 			# Download File from dev.bukkit.org
 			Bukkit::download(filename, download)
 
+			file_ext = File.extname(filename)
+
 			# Unzip if it's a zip
-			if File.extname(filename) == ".zip"
+			case file_ext
+			when ".zip"
 				# Extract Zip Archive
 				Archive::Zip.extract(filename, plugin) 
 				Dir.chdir(plugin)
@@ -45,12 +49,16 @@ module Bukkit
 				if nowebsite == false
 					website?
 				end
-			else
+			# If it's a jar... continue.
+			when ".jar"
 				if nowebsite == true
 					abort
 				else
 					website?
 				end
+			# If it's anything else...
+			else
+				say "ERROR: ".red + "#{file_ext} is not supported at this time."
 			end
 		end
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["school@jessegrant.net"]
   spec.description   = %q{A command line wrapper for CraftBukkit.}
   spec.summary       = %q{A command line wrapper for CraftBukkit. Manage your server much easier.}
-  spec.homepage      = "https://github.com/JesseHerrick/bukkit"
+  spec.homepage      = "https://github.com/JesseHerrick/Bukkit-CLI"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
