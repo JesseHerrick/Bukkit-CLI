@@ -71,10 +71,14 @@ command :install do |c|
   c.option "--nowebsite", "Doesn't ask for website after install."
   
   c.action do |args, options|
-    if options.nowebsite == true
-    	Bukkit::Install.normal(args.shift.downcase, true)
+    if args.empty?
+      abort "ERROR: ".red + "You didn't enter an argument."
     else
-    	Bukkit::Install.normal(args.shift.downcase)
+      if options.nowebsite == true
+        Bukkit::Install.normal(args.shift.downcase, true)
+      else
+        Bukkit::Install.normal(args.shift.downcase)
+      end
     end
   end
 end
@@ -86,11 +90,15 @@ command :website do |c|
   c.example "Open a plugin's website.", "bukkit website my-favorite-plugin"
   c.option "-u", "--url", "Only show the url."
   c.action do |args, options|
-    plugin = args.shift.downcase
-    if options.url == true
-      Bukkit.url(plugin)
+    if args.empty?
+      abort "ERROR: ".red + "You didn't enter an argument."
     else
-      Bukkit.website(plugin)
+      plugin = args.shift.downcase
+      if options.url == true
+        Bukkit.url(plugin)
+      else
+        Bukkit.website(plugin)
+      end
     end
   end
 end
