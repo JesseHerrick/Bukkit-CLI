@@ -129,14 +129,14 @@ command :update do |c|
       when "dev", "d", "developer"
         build = "dev"
       else
-        abort "ERROR: Invalid option '#{build}'\nTry `bukkit new --help`"
+        abort "ERROR:".red + " Invalid option '#{build}'\nTry `bukkit new --help`"
       end
     end
     # Send args & opts to Bukkit::update
     begin
       Bukkit::update(build)
     rescue
-      abort "ERROR: Something bad happened!.\nTry `bukkit new --help`\n  If error persists create an issue with specific details here:\n        https://github.com/JesseHerrick/bukkit/issues/new"
+      abort "ERROR:".red + " Something bad happened!.\nTry `bukkit new --help`\n  If error persists create an issue with specific details here:\n        https://github.com/JesseHerrick/bukkit/issues/new"
     end
   end
 end

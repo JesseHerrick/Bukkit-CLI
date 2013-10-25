@@ -2,11 +2,11 @@ module Bukkit
 	# N2K: http://cbukk.it/craftbukkit.jar http://cbukk.it/craftbukkit-beta.jar http://cbukk.it/craftbukkit-dev.jar
 	def self.new(build, dir)
 		# Create a Folder for the Server
-		begin
+		if Dir.exists?(dir)
+			abort "ERROR:".red + " Directory already exists. Try a different name."
+		else
 			Dir.mkdir(dir)
 			Dir.chdir(dir)
-		rescue Errno::EEXIST
-			abort("ERROR: Directory already exists. Try a different name.")
 		end
 
 		case build
