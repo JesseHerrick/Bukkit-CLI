@@ -30,7 +30,7 @@ command :new do |c|
 		elsif options.dev == true
 			build = "dev"
 		else
-			build = ask "What build would you like? (rb/beta/dev)"
+			build = ask "What build would you like? (rb/beta/dev) "
 			case build.downcase
 			when "rb", "recommended", "r"
 				build = "rb"
@@ -120,7 +120,7 @@ command :update do |c|
     elsif options.dev == true
       build = "dev"
     else
-      build = ask "What build would you like? (rb/beta/dev)"
+      build = ask "What build would you like? (rb/beta/dev) "
       case build.downcase
       when "rb", "recommended", "r"
         build = "rb"
