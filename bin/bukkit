@@ -45,7 +45,7 @@ command :new do |c|
     begin
 		  Bukkit::new(build, dir)
     rescue TypeError
-      abort "ERROR: Server name not specified.\nTry `bukkit new --help`"
+      abort "ERROR: Server name not specified.\nTry `bukkit new my-awesome-server-name`"
     end
 	end
 end
