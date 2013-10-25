@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('archive-zip')
   spec.add_dependency('launchy')
   spec.add_dependency('commander')
+  spec.add_dependency('colorize')
 end
