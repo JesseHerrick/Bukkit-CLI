@@ -3,7 +3,7 @@ Bukkit-CLI
 
 A Bukkit Server command line interface.
 
-![Gem Version](https://badge.fury.io/rb/jekyll-ftp.png)
+![Gem Version](https://badge.fury.io/rb/bukkit.png)
 
 [![Dependency Status](https://gemnasium.com/JesseHerrick/Bukkit-CLI.png)](https://gemnasium.com/JesseHerrick/Bukkit-CLI) 
 [![Build Status](https://travis-ci.org/JesseHerrick/Bukkit-CLI.png?branch=master)](https://travis-ci.org/JesseHerrick/Bukkit-CLI) 
