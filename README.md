@@ -3,6 +3,11 @@ Bukkit-CLI
 
 A Bukkit Server command line interface.
 
+![Gem Version](https://badge.fury.io/rb/bukkit.png)
+
+[![Dependency Status](https://gemnasium.com/JesseHerrick/Bukkit-CLI.png)](https://gemnasium.com/JesseHerrick/Bukkit-CLI) 
+[![Build Status](https://travis-ci.org/JesseHerrick/Bukkit-CLI.png?branch=master)](https://travis-ci.org/JesseHerrick/Bukkit-CLI) 
+
 ##Features (see [commands](https://github.com/JesseHerrick/Bukkit-CLI/blob/master/README.md#commands) for more details)
 * Automatically creates a new server (your choice of build: rb, beta, or dev) with a simple command.
 * Plugin manager. No more downloading and copying files.
