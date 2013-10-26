@@ -56,7 +56,8 @@ command :start do |c|
   c.description = "Start the bukkit server. (Must be in server's root)"
   c.example "Start your server.", "bukkit start"
   c.action do |args, options|
-    puts "Starting the server!"
+    puts "Starting the server...".green
+    Bukkit::start
   end
 end
 
