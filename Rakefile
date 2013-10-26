@@ -2,7 +2,7 @@
 
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 
-# Lib
+# Lib Files
 require 'bukkit/version'
 
 # Gems

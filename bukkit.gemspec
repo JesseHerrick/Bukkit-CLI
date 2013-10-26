@@ -18,10 +18,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency('json')
-  spec.add_dependency('archive-zip')
-  spec.add_dependency('launchy')
-  spec.add_dependency('commander')
-  spec.add_dependency('colorize')
-  spec.add_dependency('rake')
+  # Runtime Dependencies
+  spec.add_runtime_dependency('archive-zip')
+  spec.add_runtime_dependency('colorize')
+  spec.add_runtime_dependency('commander')
+  spec.add_runtime_dependency('json')
+  spec.add_runtime_dependency('launchy')
+
+  # Dev Dependencies
+  spec.add_development_dependency('bundler')
+  spec.add_development_dependency('rake')
 end
