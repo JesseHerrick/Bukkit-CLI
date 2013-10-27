@@ -23,13 +23,13 @@ A Bukkit Server command line interface.
 ```
 
 ###Commands:
-__To View Command Options run:__ `bukkit [command] [options: --help, -h]`
+__To View Command Options run:__ `bukkit [command] [options: -[-h]elp]`
 
 `bukkit [--help, -h]` Display global help.
 
 `bukkit install my-favorite-plugin` Install a new bukkit plugin.
 
-`bukkit new my-awesome-server-name [options: --rb, --beta, --dev]` Create a new Bukkit server.
+`bukkit new my-awesome-server-name [options: --rb, --beta, --dev, -[-f]orce (Overwrite any conflicting dirs.)], ` Create a new Bukkit server.
 
 `bukkit start` Start your server.
 
