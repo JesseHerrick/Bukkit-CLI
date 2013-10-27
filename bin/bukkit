@@ -18,6 +18,7 @@ command :new do |c|
 	c.option "--rb", "Create a new server with the recommended build."
 	c.option "--beta", "Create a new server with the beta build."
 	c.option "--dev", "Create a new server with the dev build."
+  c.option "-f", "--force", "Overwrites the chosen directory if it already exists."
 	# TODO: Those are bools, pass the t/f values to a case statement then pass that to Bukkit::new
 	c.action do |args, options|
     # Make 'dir' = to first arg
@@ -42,8 +43,15 @@ command :new do |c|
 				abort "ERROR: Invalid option '#{build}'\nTry `bukkit new --help`"
 			end
 		end
+
+    if options.force == true
+      force = true
+    else
+      force = nil
+    end
+
     begin
-		  Bukkit::new(build, dir)
+		  Bukkit::new(build, dir, force)
     rescue TypeError
       abort "ERROR: Server name not specified.\nTry `bukkit new my-awesome-server-name`"
     end

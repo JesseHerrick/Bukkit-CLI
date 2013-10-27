@@ -36,13 +36,13 @@ module Bukkit
 				jarfiles = Dir.glob("*.jar")
 				# Move each jar file outside the folder.
 				jarfiles.each do |jar|
-					%x(mv #{jar} ../)
+					FileUtils.mv(jar, "../")
 				end
 				Dir.chdir("../")
 				# Delete the extracted folder.
-				%x(rm -rf #{plugin}/)
+				FileUtils.rm_r("#{plugin}/", :force => true)
 				# Delete the archive.
-				%x(rm #{filename})
+				FileUtils.rm_r("filename", :force => true)
 
 				puts "#{plugin.capitalize!} successfully installed!"
 
