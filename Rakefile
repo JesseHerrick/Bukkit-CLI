@@ -32,4 +32,9 @@ task :build do
 
 	version = Bukkit::VERSION
 	puts "Bukkit-CLI successfully built! ".green + "Gem ".blue + "v" + version
+
+	gem = Dir.glob("*.gem")[0]
+	Dir.mkdir("gem") unless Dir.exists?("gem")
+	FileUtils.mv(gem, "gem/")
+	puts " Gem: ".red + "#{Dir.getwd}/gem/" + gem.yellow
 end
