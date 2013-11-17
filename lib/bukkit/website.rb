@@ -7,8 +7,9 @@ module Bukkit
         begin
     	    plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
     	    website = plugins_api["website"]
+            Launchy.open(website)
+            sleep(1)
     	    puts "Opening the plugin's website in your default browser..."
-    	    Launchy.open(website)
     	rescue OpenURI::HTTPError
     	    puts "ERROR: Plugin not found.\nMake sure you have the name correct.\nTry `bukkit website --help`"
     	    Bukkit::Help.website
