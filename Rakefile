@@ -1,40 +1,63 @@
 #!/usr/bin/env ruby
 
-$: << File.expand_path(File.dirname(__FILE__) + "/../lib")
+# $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), *%w[lib]))
+# $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), *%w[test]))
+
+# Created by Jesse Herrick
+# www.jessegrant.net
+# jessegrantherrick@gmail.com
 
 # Lib Files
-require 'bukkit/version'
+require 'gravatar-api/version'
 
 # Gems
 require "rubygems"
 require "rake"
 require "colorize"
+require "rake/testtask"
+
+# Helpers
+def test(filename)
+    puts `ruby -I . test/test_#{filename}.rb`
+end
 
 # Tasks
-desc "Get version"
+desc "Gem version"
 task :version do
-	version = Bukkit::VERSION_FULL.split
-	puts "#{version[0].blue} #{version[1].yellow}"
+    puts "gravatar-api " + "v#{VERSION}".yellow
 end
 
 desc "Default task."
 task :default do
-	`rake version`
-	puts "Nothing to see here... move along.".green
-	puts "Run".yellow + " `bukkit new my-awesome-server-name` to start a new server."
+    puts `rake test`
+    puts "Gem seems to be in tip top shape!".green
+    puts "Run: ".yellow + "`gravatar --help` to list all commands."
+end
+
+# Run all tests.
+Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/test*.rb']
+    t.verbose = true
 end
 
 desc "Build gem."
 task :build do
-	puts "Starting gem build...".yellow
-	puts "          Building...".yellow
-	`gem build bukkit.gemspec`
+    puts "Starting gem build...".yellow
+    puts "          Building...".yellow
+    `gem build gravatar-api.gemspec`
 
-	version = Bukkit::VERSION
-	puts "Bukkit-CLI successfully built! ".green + "Gem ".blue + "v" + version
+    version = VERSION 
+    puts "bukkit successfully built! ".green + "Gem ".red + "v".yellow + version
+    puts "Gems in this directory: ".yellow
+    Dir.glob("*.gem").each { |gem| puts "=> " + gem.yellow }
+end
 
-	gem = Dir.glob("*.gem")[0]
-	Dir.mkdir("gem") unless Dir.exists?("gem")
-	FileUtils.mv(gem, "gem/")
-	puts " Gem: ".red + "#{Dir.getwd}/gem/" + gem.yellow
+desc "Install the gem."
+task :install do
+    gem = Dir.glob("*.gem")[-1]
+    puts "Installing gem...".yellow
+    puts "From: ".yellow + 
+    `sudo gem install #{gem}`
+    puts "Gem successfully installed!".green
 end
