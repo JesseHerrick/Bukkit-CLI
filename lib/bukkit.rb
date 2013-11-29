@@ -1,5 +1,6 @@
 # Orderly and Alphabetical Require Statements
 require 'rubygems'
+require 'colorize'
 
 require 'bukkit/check'
 require 'bukkit/download'

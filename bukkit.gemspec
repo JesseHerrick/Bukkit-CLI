@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('commander')
   spec.add_runtime_dependency('json')
   spec.add_runtime_dependency('launchy')
+  spec.add_runtime_dependency('curb')
 
   # Dev Dependencies
   spec.add_development_dependency('bundler')
