@@ -1,7 +1,7 @@
 module Bukkit
 	class Server
 		# Create a new server.
-		def create(options) # Options: { :build => :rb/:beta/:dev, :force => false/true, :name => "ServerName" }
+		def create(options = {}) # Options: { :build => :rb/:beta/:dev, :force => false/true, :name => "ServerName" }
 			build = options[:build]
 			force = options[:force]
 
