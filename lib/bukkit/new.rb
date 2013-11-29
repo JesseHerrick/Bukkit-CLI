@@ -18,8 +18,6 @@ module Bukkit
 
 			# Download build.
 			Bukkit::Server.download("http://dl.bukkit.org/latest-#{build}/craftbukkit.jar")
-
-			Bukkit::Server.start
 		end
 	end
 end

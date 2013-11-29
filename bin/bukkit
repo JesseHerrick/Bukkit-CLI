@@ -60,7 +60,8 @@ command :new do |c|
 		new_options.merge!(:force => force)
 
 		# Now finally send the options to the method.
-		$server = Bukkit::Server.new(name)
-		$server.create(new_options)
+		server = Bukkit::Server.new(name)
+		server.create(new_options)
+		server.start
 	end
 end
