@@ -8,7 +8,7 @@ module Bukkit
 			if options[:filename]
 				filename = options[:filename]
 			else
-				filename = uri.split("\/")[-1]
+				filename = uri.split("\/").last
 			end
 
 			# Give some friendly output.
