@@ -1,6 +1,13 @@
 module Bukkit
+	# Class method to start the server.
 	def self.start
-		abort "ERROR:".red + " You aren't in your server's root directory." if Bukkit::Check.root? == false
+		puts "Starting the server.".green
+		system 'java -jar craftbukkit.jar'
+	end
+
+	# Instance method to start the server.
+	def start
+		puts "Starting the server.".green
 		system 'java -jar craftbukkit.jar'
 	end
 end

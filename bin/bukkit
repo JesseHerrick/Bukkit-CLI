@@ -59,11 +59,8 @@ command :new do |c|
 		force = false if force.nil?
 		new_options.merge!(:force => force)
 
-		# Add the name of the server.
-		new_options.merge!(:name => name)
-
 		# Now finally send the options to the method.
-		server = Bukkit::Server.new(name)
-		server.create(new_options)
+		$server = Bukkit::Server.new(name)
+		$server.create(new_options)
 	end
 end

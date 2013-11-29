@@ -23,7 +23,7 @@ module Bukkit
 			end
 			# => filename.ext
 
-			puts "#{filename} successfully downloaded!".green
+			puts filename.light_green + " successfully downloaded!".green
 		end
 	end
 end
