@@ -3,8 +3,8 @@ require 'curb'
 module Bukkit
 	class Server
 		# Download a file from a URI.
-		def self.download(uri, options = {})
-			# Get the filename.
+		def self.download(uri, options = {}) # Options: { :filename => "filename.ext" }
+			# Get the filename. If it isn't defined, derive it from the URI.
 			if options[:filename]
 				filename = options[:filename]
 			else
@@ -27,20 +27,3 @@ module Bukkit
 		end
 	end
 end
-
-=begin
-			if options[:filename]
-				filename = options[:filename]
-			else
-				filename = uri.split("\/")[-1]
-			end
-
-			puts "Downloading #{filename} from: #{uri}"
-			puts "This may take a while depending on your internet connection..."
-			# Download the file.
-			File.open("#{filename}", "wb") do |file|
-				file.write open("#{uri}").read
-			end
-			# => filename
-			puts "#{filename} successfully downloaded!"
-=end

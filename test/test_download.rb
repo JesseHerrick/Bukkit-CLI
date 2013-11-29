@@ -3,7 +3,8 @@ require 'bukkit'
 
 class TestDownload < Test::Unit::TestCase
 	def test_download
-		expected = Bukkit::Server.download("http://www.jessegrant.net/humans.txt")
-		assert_equal(expected, "humans.txt successfully downloaded!")
+		Bukkit::Server.download("http://www.jessegrant.net/humans.txt")
+		assert_equal(true, File.exists?("humans.txt"))
+		FileUtils.rm("humans.txt")
 	end
 end
