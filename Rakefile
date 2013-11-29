@@ -37,6 +37,7 @@ end
 # Run all tests.
 Rake::TestTask.new do |t|
     t.libs << "test"
+    t.libs << "bin"
     t.test_files = FileList['test/test*.rb']
     t.verbose = true
 end
