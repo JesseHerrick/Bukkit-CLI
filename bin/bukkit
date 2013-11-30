@@ -118,7 +118,7 @@ command :start do |c|
 	c.option "--url", "Show just the plugin's URL."
 
 	c.action do |args, options|
-
+		Bukkit::Server.start
 	end
 end
 

@@ -8,13 +8,13 @@ class TestCreate < Test::Unit::TestCase
 		server.create(options)
 
 		def check_for_server
-			FileUtils.cd("my-awesome-server/") if Dir.exists?("my-awesome-server")
+			Dir.chdir("my-awesome-server/") if Dir.exists?("my-awesome-server")
 			true if File.exists?("craftbukkit.jar")
 		end
 
 		assert_equal(check_for_server, true)
-
-		FileUtils.cd("../")
-		# FileUtils.rm_rf("my-awesome-server/")
+		
+		Dir.pwd.red
+		Dir.chdir("../")
 	end
 end

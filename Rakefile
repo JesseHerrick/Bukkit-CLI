@@ -8,7 +8,7 @@
 # jessegrantherrick@gmail.com
 
 # Lib Files
-require 'gravatar-api/version'
+require 'bukkit/version'
 
 # Gems
 require "rubygems"
@@ -24,14 +24,14 @@ end
 # Tasks
 desc "Gem version"
 task :version do
-    puts "gravatar-api " + "v#{VERSION}".yellow
+    puts "Bukkit " + "v#{VERSION}".yellow
 end
 
 desc "Default task."
 task :default do
     puts `rake test`
     puts "Gem seems to be in tip top shape!".green
-    puts "Run: ".yellow + "`gravatar --help` to list all commands."
+    puts "Run: ".yellow + "`bukkit --help` to list all commands."
 end
 
 # Run all tests.
@@ -46,7 +46,7 @@ desc "Build gem."
 task :build do
     puts "Starting gem build...".yellow
     puts "          Building...".yellow
-    `gem build gravatar-api.gemspec`
+    `gem build bukkit.gemspec`
 
     version = VERSION 
     puts "bukkit successfully built! ".green + "Gem ".red + "v".yellow + version

@@ -10,8 +10,10 @@ module Bukkit
 			@download_url = @plugin_api["versions"][0]["download"]
 			@filename = @plugin_api["versions"][0]["filename"]
 
+			# Fail... gracefully, if craftbukkit.jar does not exist.
 			abort "You're not in a server's root directory!".red unless File.exists? "craftbukkit.jar"
 
+			# Go into plugins and download the plugin.
 			Dir.chdir("plugins")
 			Bukkit::Server.download(@download_url, :filename => @filename)
 

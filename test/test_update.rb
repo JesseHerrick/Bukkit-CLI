@@ -6,6 +6,6 @@ class TestUpdate < Test::Unit::TestCase
 		Bukkit::Server.update(:build => :rb)
 		expected = File.exists?("craftbukkit.jar")
 		assert_equal(expected, true)
-		FileUtils.rm("craftbukkit.jar")
+		# FileUtils.rm("craftbukkit.jar")
 	end
 end
