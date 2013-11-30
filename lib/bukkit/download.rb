@@ -17,6 +17,9 @@ module Bukkit
 
 			# Download the file.
 			data = Curl::Easy.perform(uri)
+			data.follow_location = true
+			data.max_redirects = 8
+			data.useragent = "curb"
 			data.perform
 			File.open(filename, "wb") do |file|
 				file.write(data.body_str)
