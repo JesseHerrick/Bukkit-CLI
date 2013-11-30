@@ -150,10 +150,12 @@ command :install do |c|
 	c.example c.summary, "bukkit install my-favorite-plugin"
 
 	c.action do |args, options|
-		if args.shift.nil?
+		name = args.shift
+
+		if name.empty?
 			abort "You didn't enter a plugin name."
 		else
-			plugin = Bukkit::Plugin.new(args.shift)
+			plugin = Bukkit::Plugin.new(name)
 			plugin.install
 		end
 	end
