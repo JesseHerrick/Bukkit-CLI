@@ -1,14 +1,8 @@
 #!/usr/bin/env ruby
 
-# $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), *%w[lib]))
-# $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), *%w[test]))
-
 # Created by Jesse Herrick
 # www.jessegrant.net
 # jessegrantherrick@gmail.com
-
-# Lib Files
-require 'bukkit/version'
 
 # Gems
 require "rubygems"
@@ -22,11 +16,6 @@ def test(filename)
 end
 
 # Tasks
-desc "Gem version"
-task :version do
-    puts "Bukkit " + "v#{VERSION}".yellow
-end
-
 desc "Default task."
 task :default do
     puts `rake test`
