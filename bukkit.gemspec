@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('archive-zip')
   spec.add_runtime_dependency('colorize')
   spec.add_runtime_dependency('commander')
-  spec.add_runtime_dependency('json')
+  spec.add_runtime_dependency('multi_json')
   spec.add_runtime_dependency('launchy')
   spec.add_runtime_dependency('curb')
 
