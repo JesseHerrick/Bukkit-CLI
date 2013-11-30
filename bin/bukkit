@@ -131,6 +131,8 @@ command :website do |c|
 	c.option "--url", "Show just the plugin's URL."
 
 	c.action do |args, options|
+		abort "You didn't enter a plugin name." if args.shift.nil?
+
 		plugin = Bukkit::Plugin.new(args.shift)
 
 		if options.url
@@ -142,5 +144,17 @@ command :website do |c|
 end
 
 command :install do |c|
+	c.syntax = "bukkit install my-favorite-plugin"
+	c.summary = "Install a plugin to your server."
+	c.description = c.summary
+	c.example c.summary, "bukkit install my-favorite-plugin"
 
+	c.action do |args, options|
+		if args.shift.nil?
+			abort "You didn't enter a plugin name."
+		else
+			plugin = Bukkit::Plugin.new(args.shift)
+			plugin.install
+		end
+	end
 end
