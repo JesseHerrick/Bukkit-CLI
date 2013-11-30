@@ -14,7 +14,6 @@ module Bukkit
 			Dir.mkdir(@name)
 			puts "     Create: ".green + "#{@name}/"
 			Dir.chdir(@name)
-			puts Dir.getwd
 
 			# Download build.
 			Bukkit::Server.download("http://dl.bukkit.org/latest-#{options[:build].to_s}/craftbukkit.jar")

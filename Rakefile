@@ -37,17 +37,16 @@ task :build do
     puts "          Building...".yellow
     `gem build bukkit.gemspec`
 
-    version = VERSION 
-    puts "bukkit successfully built! ".green + "Gem ".red + "v".yellow + version
+    puts "bukkit successfully built!".green
     puts "Gems in this directory: ".yellow
     Dir.glob("*.gem").each { |gem| puts "=> " + gem.yellow }
 end
 
 desc "Install the gem."
 task :install do
-    gem = Dir.glob("*.gem")[-1]
+    gem = Dir.glob("*.gem").last
     puts "Installing gem...".yellow
-    puts "From: ".yellow + 
-    `sudo gem install #{gem}`
+    puts "From: ".yellow + gem
+    `gem install #{gem}`
     puts "Gem successfully installed!".green
 end
