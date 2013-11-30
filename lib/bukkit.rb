@@ -1,8 +1,9 @@
 # Orderly and Alphabetical Require Statements
 require 'rubygems'
 require 'colorize'
+require 'open-uri'
+require 'json'
 
-require 'bukkit/check'
 require 'bukkit/create'
 require 'bukkit/download'
 require 'bukkit/install'
@@ -20,7 +21,8 @@ module Bukkit
 
 	class Plugin
 		def initialize(name)
-			@name = name
+			@name = name.downcase
+			@plugin_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{@name}").read)
 		end 
 	end
 end

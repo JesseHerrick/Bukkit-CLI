@@ -65,3 +65,46 @@ command :new do |c|
 		server.start
 	end
 end
+
+command :update do |c|
+	c.syntax = "bukkit new my-awesome-server-name [options]"
+	c.summary = "Download the latest CraftBukkit version."
+	c.description = "Download the latest CraftBukkit version from dl.bukkit.org."
+	c.example c.summary, "bukkit update"
+	c.option "--rb", "Update server with the recommended build."
+	c.option "--beta", "Update server with the beta build."
+	c.option "--dev", "Update server with the dev build."
+
+	c.action do |args, options|
+		rb = options.rb
+		beta = options.beta
+		dev = options.dev
+		force = options.force
+
+		update_options = Hash.new
+
+		# Add the build to the new_options hash.
+		if rb
+			update_options.merge!(:build => :rb)
+		elsif beta
+			update_options.merge!(:build => :beta)
+		elsif dev
+			update_options.merge!(:build => :dev)
+		else
+			# If the user didn't give a build option then ask for it.
+			build = ask "Build [rb/beta/dev]: "
+			case build
+			when "rb", "recommended"
+				update_options.merge!(:build => :rb)
+			when "beta"
+				update_options.merge!(:build => :beta)
+			when "dev", "development"
+				update_options.merge!(:build => :dev)
+			else
+				puts "Invalid build option."
+			end
+		end
+		# Now finally send the options to the method.
+		Bukkit::Server.update(update_options)
+	end
+end
