@@ -15,6 +15,6 @@ class TestCreate < Test::Unit::TestCase
 		assert_equal(check_for_server, true)
 
 		FileUtils.cd("../")
-		FileUtils.rm_rf("my-awesome-server/")
+		# FileUtils.rm_rf("my-awesome-server/")
 	end
 end

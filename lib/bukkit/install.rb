@@ -1,74 +1,44 @@
 require 'open-uri'
 require 'json'
 require 'archive/zip'
-require 'launchy'
-require 'colorize'
 
 module Bukkit
-	class Install
-		def self.normal(plugin, nowebsite = false)
-			# Check if in root
-			abort "ERROR:".red + " Not in server's root directory.\nTry `bukkit new my-awesome-server-name`.".yellow if Bukkit::Check.root? == false
+	class Plugin
+		# Install a new plugin.
+		def install
+			# Get server's download link.
+			@download_url = @plugin_api["versions"][0]["download"]
+			@filename = @plugin_api["versions"][0]["filename"]
 
-			# BukGet API for Plugin Installs
-			plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
-			# Get Plugin's Website
-			@@website = plugins_api["website"]
-			# Get Plugin's Download Link
-			download = plugins_api["versions"][0]["download"]
-			# Get Plugin's Filename
-			filename = plugins_api["versions"][0]["filename"]
-			# Switch to plugins dir
-			plugin = plugin.downcase
+			abort "You're not in a server's root directory!".red unless File.exists? "craftbukkit.jar"
+
 			Dir.chdir("plugins")
-			puts "Downloading #{plugin} from #{@@website}..."
-			# Download File from dev.bukkit.org
-			Bukkit::download(filename, download)
+			Bukkit::Server.download(@download_url, :filename => @filename)
 
-			file_ext = File.extname(filename)
+			file_ext = File.extname(@filename)
 
 			# Unzip if it's a zip
-			case file_ext
-			when ".zip"
+			if file_ext == ".zip"
 				# Extract Zip Archive
-				Archive::Zip.extract(filename, plugin) 
-				Dir.chdir(plugin)
+				Archive::Zip.extract(@filename, @name)
+				Dir.chdir(@name)
 				jarfiles = Dir.glob("*.jar")
 				# Move each jar file outside the folder.
 				jarfiles.each do |jar|
 					FileUtils.mv(jar, "../")
 				end
+				puts " Unarchived: ".yellow + @filename
+
 				Dir.chdir("../")
 				# Delete the extracted folder.
-				FileUtils.rm_r("#{plugin}/", :force => true)
+				FileUtils.rm_rf("#{@name}/")
 				# Delete the archive.
-				FileUtils.rm_r("filename", :force => true)
-
-				puts "#{plugin.capitalize!} successfully installed!"
-
-				if nowebsite == false
-					website?
-				end
-			# If it's a jar... continue.
-			when ".jar"
-				if nowebsite == true
-					abort
-				else
-					website?
-				end
-			# If it's anything else...
+				FileUtils.rm_rf(@filename)
 			else
-				say "ERROR: ".red + "#{file_ext} is not supported at this time."
+				abort "Something weird happened...\nThe file extension is #{file_ext}, not '.zip' or '.jar'."
 			end
-		end
-
-		def self.website?
-			website_yn = agree "Would you like to visit it's website? (yes/no)"
-
-			if website_yn == true
-				puts "Launching website!"
-				Launchy.open(@@website)
-			end
+			puts "  Installed: ".light_green + @name
+			puts @name.light_green + " successfully installed!".green
 		end
 	end
 end
