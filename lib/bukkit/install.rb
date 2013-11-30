@@ -20,7 +20,8 @@ module Bukkit
 			file_ext = File.extname(@filename)
 
 			# Unzip if it's a zip
-			if file_ext == ".zip"
+			case file_ext
+			when ".zip"
 				# Extract Zip Archive
 				Archive::Zip.extract(@filename, @name)
 				Dir.chdir(@name)
@@ -36,6 +37,8 @@ module Bukkit
 				FileUtils.rm_rf("#{@name}/")
 				# Delete the archive.
 				FileUtils.rm_rf(@filename)
+			when ".jar"
+				nil
 			else
 				abort "Something weird happened...\nThe file extension is #{file_ext}, not '.zip' or '.jar'."
 			end
