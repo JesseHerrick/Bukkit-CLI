@@ -5,7 +5,7 @@ module Bukkit
 			force = options[:force]
 
 			# If the dir already exists, fail gracefully.
-			if Dir.exists?(@name)
+			if Dir.exists?(@name) && force == false
 				puts "'#{@name}' already exists.".red
 
 				names = %w{ minecraftyness mine-opolis mineville minetown bukkits-o-fun }

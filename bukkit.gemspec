@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 	spec.add_runtime_dependency('commander')
 	spec.add_runtime_dependency('multi_json')
 	spec.add_runtime_dependency('launchy')
-	spec.add_runtime_dependency('curb')
+	spec.add_runtime_dependency('rest-client')
 
 	# Dev Dependencies
 	spec.add_development_dependency('bundler')

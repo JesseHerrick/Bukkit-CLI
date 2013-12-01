@@ -1,4 +1,4 @@
-require 'curb'
+require 'rest-client'
 
 module Bukkit
 	class Server
@@ -14,15 +14,12 @@ module Bukkit
 			# Give some friendly output.
 			puts "Downloading: ".yellow + filename
 			puts "       From: ".yellow + uri
+			puts "(This may take a while depending on your internet connection.)".light_yellow
 
 			# Download the file.
-			data = Curl::Easy.perform(uri)
-			data.follow_location = true
-			data.max_redirects = 8
-			data.useragent = "curb"
-			data.perform
+			data = RestClient.get(uri)
 			File.open(filename, "wb") do |file|
-				file.write(data.body_str)
+				file.write(data)
 			end
 			# => filename.ext
 
