@@ -1,27 +1,20 @@
-require 'open-uri'
-require 'json'
 require 'launchy'
 
 module Bukkit
-   def self.website(plugin)
-        begin
-    	    plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
-    	    website = plugins_api["website"]
-            Launchy.open(website)
-            sleep(1)
-    	    puts "Opening the plugin's website in your default browser..."
-    	rescue OpenURI::HTTPError
-    	    puts "ERROR: Plugin not found.\nMake sure you have the name correct.\nTry `bukkit website --help`"
-    	    Bukkit::Help.website
-    	rescue
-    	    puts "ERROR: Plugin name is undefined."
-	   end
-    end
+    class Plugin
+        # Return the plugin's website URL.
+        def website
+            @website = @plugin_api["website"]
+        end
+        # => http://dev.bukkit.org/bukkit-plugins/pluginname
 
-    def self.url(plugin)
-        plugins_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{plugin}").read)
-        website = plugins_api["website"]
-        say "\n#{plugin}'s website URL is #{website}."
-        puts ""
+        # Open website in default browser.
+        def view_website
+            Launchy.open(website)
+            puts "Opening #{@name}'s Website...".light_green
+            puts "    Website: ".yellow + website
+            sleep 1.5
+            return website
+        end
     end
 end

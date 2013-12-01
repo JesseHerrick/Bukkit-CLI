@@ -1,19 +1,13 @@
 module Bukkit
-	def self.update(build)
-		# Get build url.
-		case build
-		when "rb"
-			# Download the Latest Recommended Build
-			say "Downloading Recommended Build... (this may take a while)"
-			Bukkit::download("craftbukkit.jar", "http://cbukk.it/craftbukkit.jar")
-		when "beta"
-			# Download the Latest Beta Build
-			say "Downloading Beta Build... (this may take a while)"
-			Bukkit::download("craftbukkit.jar", "http://cbukk.it/craftbukkit-beta.jar")
-		when "dev"
-			# Download the Latest Developer Build
-			say "Downloading Developer Build... (this may take a while)"
-			Bukkit::download("craftbukkit.jar", "http://cbukk.it/craftbukkit-dev.jar")
+	class Server
+		# Download a new version of bukkit.
+		def self.update(options = { :build => :rb }) # Options: { :build => :rb/:beta/:dev }
+			Bukkit::Server.download("http://dl.bukkit.org/latest-#{options[:build].to_s}/craftbukkit.jar")
+		end
+
+		# Download a new version of bukkit.
+		def update(options = { :build => :rb }) # Options: { :build => :rb/:beta/:dev }
+			Bukkit::Server.download("http://dl.bukkit.org/latest-#{options[:build].to_s}/craftbukkit.jar")
 		end
 	end
 end

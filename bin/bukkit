@@ -18,134 +18,146 @@ command :new do |c|
 	c.option "--rb", "Create a new server with the recommended build."
 	c.option "--beta", "Create a new server with the beta build."
 	c.option "--dev", "Create a new server with the dev build."
-  c.option "-f", "--force", "Overwrites the chosen directory if it already exists."
-	# TODO: Those are bools, pass the t/f values to a case statement then pass that to Bukkit::new
-	c.action do |args, options|
-    # Make 'dir' = to first arg
-    dir = args.shift
+	c.option "-f", "--force", "Overwrites the chosen directory if it already exists."
 
-		if options.rb == true
-			build = "rb"
-		elsif options.beta == true
-			build = "beta"
-		elsif options.dev == true
-			build = "dev"
+	c.action do |args, options|
+		rb = options.rb
+		beta = options.beta
+		dev = options.dev
+		force = options.force
+
+		name = args.shift
+
+		new_options = Hash.new
+
+		# If it doesn't have a name then just stop them right there.
+		abort "You didn't enter a server name.\nTry `bukkit new my-awesome-server-name`." if name.nil?
+
+		# Add the build to the new_options hash.
+		if rb
+			new_options.merge!(:build => :rb)
+		elsif beta
+			new_options.merge!(:build => :beta)
+		elsif dev
+			new_options.merge!(:build => :dev)
 		else
-			build = ask "What build would you like? (rb/beta/dev) "
-			case build.downcase
-			when "rb", "recommended", "r"
-				build = "rb"
-			when "beta", "b"
-				build = "beta"
-			when "dev", "d", "developer"
-				build = "dev"
+			# If the user didn't give a build option then ask for it.
+			build = ask "Build [rb/beta/dev]: "
+			case build
+			when "rb", "recommended"
+				new_options.merge!(:build => :rb)
+			when "beta"
+				new_options.merge!(:build => :beta)
+			when "dev", "development"
+				new_options.merge!(:build => :dev)
 			else
-				abort "ERROR: Invalid option '#{build}'\nTry `bukkit new --help`"
+				abort "Invalid build option.".red
 			end
 		end
 
-    if options.force == true
-      force = true
-    else
-      force = nil
-    end
+		# Add the force option if it's needed. Adds the bool returned from 'force'.
+		force = false if force.nil?
+		new_options.merge!(:force => force)
 
-    begin
-		  Bukkit::new(build, dir, force)
-    rescue TypeError
-      abort "ERROR: Server name not specified.\nTry `bukkit new my-awesome-server-name`"
-    end
+		# Now finally send the options to the method.
+		server = Bukkit::Server.new(name)
+		server.create(new_options)
+		server.start
+	end
+end
+alias_command :create, :new
+
+command :update do |c|
+	c.syntax = "bukkit update [options]"
+	c.summary = "Download the latest CraftBukkit version."
+	c.description = "Download the latest CraftBukkit version from dl.bukkit.org."
+	c.example c.summary, "bukkit update"
+	c.option "--rb", "Update server with the recommended build."
+	c.option "--beta", "Update server with the beta build."
+	c.option "--dev", "Update server with the dev build."
+
+	c.action do |args, options|
+		rb = options.rb
+		beta = options.beta
+		dev = options.dev
+		force = options.force
+
+		update_options = Hash.new
+
+		# Add the build to the new_options hash.
+		if rb
+			update_options.merge!(:build => :rb)
+		elsif beta
+			update_options.merge!(:build => :beta)
+		elsif dev
+			update_options.merge!(:build => :dev)
+		else
+			# If the user didn't give a build option then ask for it.
+			build = ask "Build [rb/beta/dev]: "
+			case build
+			when "rb", "recommended"
+				update_options.merge!(:build => :rb)
+			when "beta"
+				update_options.merge!(:build => :beta)
+			when "dev", "development"
+				update_options.merge!(:build => :dev)
+			else
+				puts "Invalid build option."
+			end
+		end
+		# Now finally send the options to the method.
+		Bukkit::Server.update(update_options)
 	end
 end
 
 command :start do |c|
-  c.syntax = "bukkit start"
-  c.summary = "Start your server."
-  c.description = "Start the bukkit server. (Must be in server's root)"
-  c.example "Start your server.", "bukkit start"
-  c.action do |args, options|
-    puts "Starting the server...".green
-    Bukkit::start
-  end
-end
+	c.syntax = "bukkit start"
+	c.summary = "Open the plugin's start in the default browser."
+	c.description = c.summary
+	c.example c.summary, "bukkit website plugin-name"
+	c.example "Show just the plugin's URL.", "bukkit website plugin-name --url"
+	c.option "--url", "Show just the plugin's URL."
 
-command :install do |c|
-  c.syntax = "bukkit install my-favorite-plugin [options]"
-  c.summary = "Install a new bukkit plugin."
-  c.description = "Installs a new bukkit plugin. Must be on dev.bukkit.org. (can also be a zip!)"
-
-  c.example "Installs the plugin 'my-favorite-plugin' (will ask for website when done).", "bukkit install my-favorite-plugin"
-
-  c.example "Installs the plugin 'my-favorite-plugin' and doesn't ask to open it's website", "bukkit install my-favorite-plugin --nowebsite"
-  c.option "--nowebsite", "Doesn't ask for website after install."
-  
-  c.action do |args, options|
-    if args.empty?
-      abort "ERROR: ".red + "You didn't enter an argument."
-    else
-      if options.nowebsite == true
-        Bukkit::Install.normal(args.shift.downcase, true)
-      else
-        Bukkit::Install.normal(args.shift.downcase)
-      end
-    end
-  end
+	c.action do |args, options|
+		Bukkit::Server.start
+	end
 end
 
 command :website do |c|
-  c.syntax = "bukkit website my-favorite-plugin"
-  c.summary = "Open a plugin's website."
-  c.description = "Opens a plugin's website your default browser."
-  c.example "Open a plugin's website.", "bukkit website my-favorite-plugin"
-  c.option "-u", "--url", "Only show the url."
-  c.action do |args, options|
-    if args.empty?
-      abort "ERROR: ".red + "You didn't enter an argument."
-    else
-      plugin = args.shift.downcase
-      if options.url == true
-        Bukkit.url(plugin)
-      else
-        Bukkit.website(plugin)
-      end
-    end
-  end
+	c.syntax = "bukkit website [options]"
+	c.summary = "Open the plugin's website in the default browser."
+	c.description = c.summary
+	c.example c.summary, "bukkit website plugin-name"
+	c.example "Show just the plugin's URL.", "bukkit website plugin-name --url"
+	c.option "--url", "Show just the plugin's URL."
+
+	c.action do |args, options|
+		abort "You didn't enter a plugin name." if args.shift.nil?
+
+		plugin = Bukkit::Plugin.new(args.shift)
+
+		if options.url
+			puts "    Website: ".yellow + plugin.website
+		else
+			plugin.view_website
+		end
+	end
 end
 
-command :update do |c|
-  c.syntax = "bukkit update [options]"
-  c.summary = "Get the latest version of bukkit."
-  c.description = "Download the latest version of CraftBukkit."
-  c.example "Updates your server to the latest recommended build.", "bukkit update --rb"
-  c.option "--rb", "Get the latest recommended build."
-  c.option "--beta", "Get the latest beta build."
-  c.option "--dev", "Get the latest dev build."
-  # TODO: Those are bools, pass the t/f values to a case statement then pass that to Bukkit::new
-  c.action do |args, options|
-    if options.rb == true
-      build = "rb"
-    elsif options.beta == true
-      build = "beta"
-    elsif options.dev == true
-      build = "dev"
-    else
-      build = ask "What build would you like? (rb/beta/dev) "
-      case build.downcase
-      when "rb", "recommended", "r"
-        build = "rb"
-      when "beta", "b"
-        build = "beta"
-      when "dev", "d", "developer"
-        build = "dev"
-      else
-        abort "ERROR:".red + " Invalid option '#{build}'\nTry `bukkit new --help`"
-      end
-    end
-    # Send args & opts to Bukkit::update
-    begin
-      Bukkit::update(build)
-    rescue
-      abort "ERROR:".red + " Something bad happened!.\nTry `bukkit new --help`\n  If error persists create an issue with specific details here:\n        https://github.com/JesseHerrick/bukkit/issues/new"
-    end
-  end
+command :install do |c|
+	c.syntax = "bukkit install my-favorite-plugin"
+	c.summary = "Install a plugin to your server."
+	c.description = c.summary
+	c.example c.summary, "bukkit install my-favorite-plugin"
+
+	c.action do |args, options|
+		name = args.shift
+
+		if name.empty?
+			abort "You didn't enter a plugin name."
+		else
+			plugin = Bukkit::Plugin.new(name)
+			plugin.install
+		end
+	end
 end
