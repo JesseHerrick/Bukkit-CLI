@@ -51,7 +51,7 @@ command :new do |c|
 			when "dev", "development"
 				new_options.merge!(:build => :dev)
 			else
-				puts "Invalid build option."
+				abort "Invalid build option.".red
 			end
 		end
 
@@ -65,6 +65,7 @@ command :new do |c|
 		server.start
 	end
 end
+alias_command :create, :new
 
 command :update do |c|
 	c.syntax = "bukkit update [options]"
