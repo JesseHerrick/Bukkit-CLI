@@ -132,9 +132,10 @@ command :website do |c|
 	c.option "--url", "Show just the plugin's URL."
 
 	c.action do |args, options|
-		abort "You didn't enter a plugin name." if args.shift.nil?
+		plugin_name = args.shift
+		abort "You didn't enter a plugin name." if plugin_name.empty?
 
-		plugin = Bukkit::Plugin.new(args.shift)
+		plugin = Bukkit::Plugin.new(plugin_name)
 
 		if options.url
 			puts "    Website: ".yellow + plugin.website
