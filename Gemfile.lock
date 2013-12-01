@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bukkit (2.1.1)
+    bukkit (2.1.2)
       archive-zip
       colorize
       commander
