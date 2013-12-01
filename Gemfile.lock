@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bukkit (2.1.0)
+    bukkit (2.1.1)
       archive-zip
       colorize
       commander
@@ -22,7 +22,7 @@ GEM
     io-like (0.3.0)
     launchy (2.4.2)
       addressable (~> 2.3)
-    mime-types (1.25.1)
+    mime-types (2.0)
     multi_json (1.8.2)
     rake (10.1.0)
     rest-client (1.6.7)
