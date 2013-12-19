@@ -43,7 +43,7 @@ command :new do |c|
 		else
 			# If the user didn't give a build option then ask for it.
 			build = ask "Build [rb/beta/dev]: "
-			case build.downcase!
+			case build
 			when "rb", "recommended"
 				new_options.merge!(:build => :rb)
 			when "beta"

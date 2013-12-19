@@ -25,6 +25,9 @@ module Bukkit
 
 			# Download build.
 			Bukkit::Server.download("http://dl.bukkit.org/latest-#{options[:build].to_s}/craftbukkit.jar")
+
+			# Give some friendly output.
+			puts "New server build at #{Dir.pwd}/".green
 		end
 	end
 end
