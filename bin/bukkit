@@ -94,7 +94,7 @@ command :update do |c|
 		else
 			# If the user didn't give a build option then ask for it.
 			build = ask "Build [rb/beta/dev]: "
-			case build
+			case build.downcase
 			when "rb", "recommended"
 				update_options.merge!(:build => :rb)
 			when "beta"
@@ -117,6 +117,7 @@ command :start do |c|
 	c.example c.summary, "bukkit website plugin-name"
 	c.example "Show just the plugin's URL.", "bukkit website plugin-name --url"
 	c.option "--url", "Show just the plugin's URL."
+	c.option "r", "--ram", ""
 
 	c.action do |args, options|
 		Bukkit::Server.start
