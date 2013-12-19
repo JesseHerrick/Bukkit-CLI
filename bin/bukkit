@@ -114,13 +114,16 @@ command :start do |c|
 	c.syntax = "bukkit start"
 	c.summary = "Open the plugin's start in the default browser."
 	c.description = c.summary
-	c.example c.summary, "bukkit website plugin-name"
-	c.example "Show just the plugin's URL.", "bukkit website plugin-name --url"
 	c.option "--url", "Show just the plugin's URL."
-	c.option "r", "--ram", ""
+	c.option "-r", "--ram MEMORY", Integer, "Specify the amount of RAM."
+	c.example "Start a bukkit server.", "bukkit start"
+	c.example "Start a bukkit server with a specified amount of RAM (in megabytes.", "bukkit start --ram 1000"
 
 	c.action do |args, options|
-		Bukkit::Server.start
+		@ram = options.default[:ram]
+		start_options = { :ram => @ram }
+
+		Bukkit::Server.start(start_options)
 	end
 end
 

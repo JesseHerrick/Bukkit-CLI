@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 	spec.authors       = ["Jesse Herrick"]
 	spec.email         = ["school@jessegrant.net"]
 	spec.description   = %q{A command line wrapper for CraftBukkit.}
-	spec.summary       = %q{A command line wrapper for CraftBukkit. Manage your server much easier.}
+	spec.summary       = %q{A command line wrapper for CraftBukkit. Manage your server easier.}
 	spec.homepage      = "https://github.com/JesseHerrick/Bukkit-CLI"
 	spec.license       = "MIT"
 
