@@ -4,3 +4,4 @@
 *.gem
 gem/
 my-awesome-server/
+Gemfile.lock
