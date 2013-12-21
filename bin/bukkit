@@ -121,7 +121,7 @@ command :start do |c|
 
 	c.action do |args, options|
 		@ram = options.default[:ram]
-		start_options = { :ram => @ram }
+		start_options = { :ram => @ram.to_i }
 
 		Bukkit::Server.start(start_options)
 	end
