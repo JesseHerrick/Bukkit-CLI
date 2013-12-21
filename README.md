@@ -31,7 +31,7 @@ __To View Command Options run:__ `bukkit [command] [options: -[-h]elp]`
 
 `bukkit new my-awesome-server-name [options: --rb, --beta, --dev, -[-f]orce (Overwrite any conflicting dirs.)], ` Create a new Bukkit server.
 
-`bukkit start` Start your server.
+`bukkit start [options: --ram MEMORY_INT]` Start your server.
 
 `bukkit update [options: --rb, --beta, --dev]` Download the latest version of CraftBukkit.
 
