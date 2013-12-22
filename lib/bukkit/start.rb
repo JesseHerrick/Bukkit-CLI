@@ -9,7 +9,8 @@ module Bukkit
 				if ram.nil?
 					system 'java -jar craftbukkit.jar'
 				else
-					system 'java -Xmx#{ram}M -Xms#{ram}M -jar craftbukkit.jar'
+					puts "Ram: ".blue + ram.to_s.light_blue
+					system "java -Xmx#{ram}M -Xms#{ram}M -jar craftbukkit.jar"
 				end
 			else
 				abort "You're not in your server's root directory.".red
