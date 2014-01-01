@@ -6,7 +6,7 @@ module Bukkit
 				ram = options[:ram]
 
 				puts "Starting your CraftBukkit server...".green
-				if ram.nil?
+				if ram.nil? or ram == 0
 					system 'java -jar craftbukkit.jar'
 				else
 					puts "Ram: ".blue + ram.to_s.light_blue
