@@ -11,6 +11,7 @@ require 'bukkit/start'
 require 'bukkit/update'
 require 'bukkit/version'
 require 'bukkit/website'
+require 'bukkit/uninstall'
 
 module Bukkit
 	class Server

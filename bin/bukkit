@@ -158,11 +158,28 @@ command :install do |c|
 	c.action do |args, options|
 		name = args.shift
 
-		if name.empty?
+		if name.nil? || name.empty?
 			abort "You didn't enter a plugin name."
 		else
 			plugin = Bukkit::Plugin.new(name)
 			plugin.install
+		end
+	end
+end
+
+command :uninstall do |c|
+	c.syntax = "bukkit uninstall my-not-so-favorite-plugin"
+	c.summary = "Uninstall a plugin from your server."
+	c.description = c.summary
+	c.example c.summary, "bukkit uninstall my-not-so-favorite-plugin"
+
+	c.action do |args, options|
+		name = args.shift
+
+		if name.nil? || name.empty?
+			abort "You didn't enter a plugin name."
+		else
+			Bukkit::Plugin.uninstall
 		end
 	end
 end

@@ -5,3 +5,4 @@
 gem/
 my-awesome-server/
 Gemfile.lock
+test_server/
