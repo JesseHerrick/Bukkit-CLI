@@ -23,7 +23,7 @@ module Bukkit
 
 				# Delete each matching file.
 				if delete.empty?
-					puts "No plugins found matching '#{name}'".yellow
+					abort "No plugins found matching '#{name}'".yellow
 				else
 					delete.each do |file|
 						if File.ftype(file) == "directory"

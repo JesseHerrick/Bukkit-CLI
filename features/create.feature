@@ -11,3 +11,9 @@ Feature: Create Server
 	Scenario: Create a new server with no name
 		When I run `bukkit new`
 		Then the exit code should be 1
+
+	Scenario: Create a new server with no build specified
+		When I run `bukkit new MC --nostart` interactively
+		And I type "rb"
+		Then the file "MC/craftbukkit.jar" should exist
+		And the exit code should be 0
