@@ -11,10 +11,11 @@ Then(/^the file "(.*?)" should exist$/) do |file|
 end
 
 Given(/^a simulated server "(.*?)"$/) do |name|
+  Dir.mkdir("tmp") unless Dir.exists? "tmp"
   Dir.chdir("tmp")
-  Dir.mkdir("MC")
+  Dir.mkdir("MC") unless Dir.exists? "MC"
   Dir.chdir("MC")
-  Dir.mkdir("plugins")
+  Dir.mkdir("plugins") unless Dir.exists? "plugins"
 
   file = File.new("craftbukkit.jar", "w")
   file.write("This is just a simulated jarfile.")

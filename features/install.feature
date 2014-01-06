@@ -7,7 +7,6 @@ Feature: Install
 		Given a simulated server "MC"
 		When I run `bukkit install WorldEdit`
 		Then the file "MC/plugins/WorldEdit.jar" should exist
-		And the exit code should be 0
 
 	Scenario: Install an unknown plugin
 		Given a simulated server "MC"
