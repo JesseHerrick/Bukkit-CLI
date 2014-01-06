@@ -3,6 +3,7 @@
 *~
 *.gem
 .bundle/
+tmp/
 gem/
 my-awesome-server/
 Gemfile.lock
