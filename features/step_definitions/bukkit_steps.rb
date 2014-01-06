@@ -25,3 +25,7 @@ end
 Then(/^the plugin "(.*?)" should not exist$/) do |name|
   File.exists?("plugins/#{name}") == false
 end
+
+Then(/^the output should equal "(.*?)"$/) do |output|
+  @output == output
+end
