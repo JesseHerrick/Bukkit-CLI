@@ -5,6 +5,7 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 require 'rubygems'
 require 'commander/import'
 
+require 'bukkit/version'
 require 'bukkit.rb'
 
 program :version, Bukkit::VERSION
@@ -179,7 +180,7 @@ command :uninstall do |c|
 		if name.nil? || name.empty?
 			abort "You didn't enter a plugin name."
 		else
-			Bukkit::Plugin.uninstall
+			Bukkit::Plugin.uninstall(name)
 		end
 	end
 end

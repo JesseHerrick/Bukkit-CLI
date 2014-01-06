@@ -2,6 +2,7 @@
 *.swp
 *~
 *.gem
+.bundle/
 gem/
 my-awesome-server/
 Gemfile.lock
