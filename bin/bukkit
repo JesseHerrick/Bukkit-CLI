@@ -20,13 +20,14 @@ command :new do |c|
 	c.option "--beta", "Create a new server with the beta build."
 	c.option "--dev", "Create a new server with the dev build."
 	c.option "-f", "--force", "Overwrites the chosen directory if it already exists."
-	c.option "--no-start", "Just creates a new server, doesn't start it."
+	c.option "--nostart", "Just creates a new server, doesn't start it."
 
 	c.action do |args, options|
-		rb = options.rb
-		beta = options.beta
-		dev = options.dev
-		force = options.force
+		rb       = options.rb
+		beta     = options.beta
+		dev      = options.dev
+		force    = options.force
+		nostart = options.nostart
 
 		name = args.shift
 
@@ -64,7 +65,7 @@ command :new do |c|
 		# Now finally send the options to the method.
 		server = Bukkit::Server.new(name)
 		server.create(new_options)
-		Bukkit::Server.start
+		Bukkit::Server.start unless nostart == true
 	end
 end
 alias_command :create, :new
