@@ -20,6 +20,7 @@ command :new do |c|
 	c.option "--beta", "Create a new server with the beta build."
 	c.option "--dev", "Create a new server with the dev build."
 	c.option "-f", "--force", "Overwrites the chosen directory if it already exists."
+	c.option "--no-start", "Just creates a new server, doesn't start it."
 
 	c.action do |args, options|
 		rb = options.rb
