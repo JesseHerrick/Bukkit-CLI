@@ -5,6 +5,7 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 require 'rubygems'
 require 'commander/import'
 
+require 'bukkit/version'
 require 'bukkit.rb'
 
 program :version, Bukkit::VERSION
@@ -152,17 +153,34 @@ end
 command :install do |c|
 	c.syntax = "bukkit install my-favorite-plugin"
 	c.summary = "Install a plugin to your server."
-	c.description = c.summary
+	c.description = "An easy way to install a plugin to your server. (case insensitive)"
 	c.example c.summary, "bukkit install my-favorite-plugin"
 
 	c.action do |args, options|
 		name = args.shift
 
-		if name.empty?
+		if name.nil? || name.empty?
 			abort "You didn't enter a plugin name."
 		else
 			plugin = Bukkit::Plugin.new(name)
 			plugin.install
+		end
+	end
+end
+
+command :uninstall do |c|
+	c.syntax = "bukkit uninstall my-not-so-favorite-plugin"
+	c.summary = "Uninstall a plugin from your server."
+	c.description = "An easy way to uninstall a plugin from your server. (case insensitive)"
+	c.example c.summary, "bukkit uninstall my-not-so-favorite-plugin"
+
+	c.action do |args, options|
+		name = args.shift
+
+		if name.nil? || name.empty?
+			abort "You didn't enter a plugin name."
+		else
+			Bukkit::Plugin.uninstall(name)
 		end
 	end
 end

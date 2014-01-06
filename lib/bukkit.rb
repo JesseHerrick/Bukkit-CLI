@@ -4,13 +4,15 @@ require 'colorize'
 require 'open-uri'
 require 'json'
 
-require 'bukkit/create'
-require 'bukkit/download'
-require 'bukkit/install'
-require 'bukkit/start'
-require 'bukkit/update'
-require 'bukkit/version'
-require 'bukkit/website'
+# To require all files.
+require 'bukkit/create.rb'
+require 'bukkit/download.rb'
+require 'bukkit/install.rb'
+require 'bukkit/start.rb'
+require 'bukkit/uninstall.rb'
+require 'bukkit/update.rb'
+require 'bukkit/version.rb'
+require 'bukkit/website.rb'
 
 module Bukkit
 	class Server

@@ -8,7 +8,12 @@
 require "rubygems"
 require "rake"
 require "colorize"
-require "rake/testtask"
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+    t.cucumber_opts = "features --format pretty"
+end
 
 # Helpers
 def test(filename)
@@ -21,14 +26,6 @@ task :default do
     puts `rake test`
     puts "Gem seems to be in tip top shape!".green
     puts "Run: ".yellow + "`bukkit --help` to list all commands."
-end
-
-# Run all tests.
-Rake::TestTask.new do |t|
-    t.libs << "test"
-    t.libs << "bin"
-    t.test_files = FileList['test/test*.rb']
-    t.verbose = true
 end
 
 desc "Build gem."
