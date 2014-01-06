@@ -21,3 +21,7 @@ Given(/^a simulated server "(.*?)"$/) do |name|
   file.write("This is just a simulated jarfile.")
   file.close
 end
+
+Then(/^the plugin "(.*?)" should not exist$/) do |name|
+  File.exists?("plugins/#{name}") == false
+end
