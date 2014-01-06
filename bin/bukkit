@@ -153,7 +153,7 @@ end
 command :install do |c|
 	c.syntax = "bukkit install my-favorite-plugin"
 	c.summary = "Install a plugin to your server."
-	c.description = c.summary
+	c.description = "An easy way to install a plugin to your server. (case insensitive)"
 	c.example c.summary, "bukkit install my-favorite-plugin"
 
 	c.action do |args, options|
@@ -171,7 +171,7 @@ end
 command :uninstall do |c|
 	c.syntax = "bukkit uninstall my-not-so-favorite-plugin"
 	c.summary = "Uninstall a plugin from your server."
-	c.description = c.summary
+	c.description = "An easy way to uninstall a plugin from your server. (case insensitive)"
 	c.example c.summary, "bukkit uninstall my-not-so-favorite-plugin"
 
 	c.action do |args, options|
