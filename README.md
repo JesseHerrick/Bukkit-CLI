@@ -43,7 +43,7 @@ __To View Command Options run:__ `bukkit [command] [options: -[-h]elp]`
 ###Prerequisites:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/) ([RVM](http://rvm.io/) - for Linux/Mac and [RubyInstaller](http://rubyinstaller.org/) - Windows)
-  * `2.0.0` (recommended!)
+  * `2.1.0` or `2.0.0` (recommended!)
   * `1.9.3` (go right ahead)
   * `other versions` (may or may not work, if you find a bug though [report it!](https://github.com/JesseHerrick/bukkit/issues/new))
 * [Java](http://java.com/en/download/manual.jsp)
@@ -58,3 +58,4 @@ To file a feature request just create an issue [here.](https://github.com/JesseH
 To contribute to this awesome project just [fork it](https://github.com/JesseHerrick/Bukkit-CLI/fork) and send a [pull request](https://github.com/JesseHerrick/Bukkit-CLI/pulls).
 
 Please follow the [Ruby Styleguide](https://github.com/styleguide/ruby). If you have any questions please feel free to [email me.](mailto:school@jessegrant.net)
+
