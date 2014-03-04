@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'fileutils'
 
 module Bukkit
 	class Server
@@ -10,6 +11,13 @@ module Bukkit
 			else
 				filename = uri.split("\/").last
 			end
+
+			# Catch SIGINT if needed.
+			trap("SIGINT") {
+				puts "\nDownload failed.".red
+				FileUtils.rm(filename) if File.exists? filename
+				exit
+			}
 
 			# Give some friendly output.
 			puts "Downloading: ".yellow + filename

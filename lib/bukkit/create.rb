@@ -23,6 +23,12 @@ module Bukkit
 			puts "     Create: ".green + "#{@name}/"
 			Dir.chdir(@name)
 
+			# Fail gracefully on control + C (SIGINT)
+			trap("SIGINT") {
+				FileUtils.rm_rf(@name)
+				puts "#{@name} not created.".red
+			}
+
 			# Download build.
 			Bukkit::Server.download("http://dl.bukkit.org/latest-#{options[:build].to_s}/craftbukkit.jar")
 

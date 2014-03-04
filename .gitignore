@@ -4,6 +4,7 @@
 *.gem
 .bundle/
 tmp/
+pkg/
 gem/
 my-awesome-server/
 Gemfile.lock
