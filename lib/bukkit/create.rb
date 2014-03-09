@@ -1,16 +1,12 @@
 module Bukkit
 	class Server
+		public
 		# Create a new server.
 		def create(options = {}) # Options: { :build => :rb/:beta/:dev, :force => false/true }
-			force = options[:force]
+			@force = options[:force]
 
 			# If the dir already exists, fail gracefully.
-			if Dir.exists?(@name) && force == false
-				puts "'#{@name}' already exists.".red
-
-				names = %w{ minecraftyness mine-opolis mineville minetown bukkits-o-fun }
-				abort "Try ".yellow + "`bukkit new #{names.sample}` ".light_yellow + "or".yellow + " `bukkit new #{@name} --force`".light_blue
-			end
+			check_for_dir(@name)
 
 			# Let the dark side of the force flow through you...
 			if force == true
@@ -34,6 +30,16 @@ module Bukkit
 
 			# Give some friendly output.
 			puts "New server build at: ".blue + "#{Dir.pwd}/".light_blue
+		end
+
+		private
+		def check_for_dir(dirname)
+			if Dir.exists?(dirname) && @force == false
+				puts "'#{dirname}' already exists.".red
+
+				names = %w{ minecraftyness mine-opolis mineville minetown bukkits-o-fun }
+				abort "Try ".yellow + "`bukkit new #{names.sample}` ".light_yellow + "or".yellow + " `bukkit new #{dirname} --force`".light_blue
+			end
 		end
 	end
 end
