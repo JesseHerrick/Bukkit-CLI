@@ -9,7 +9,7 @@ module Bukkit
 			check_for_dir(@name)
 
 			# Let the dark side of the force flow through you...
-			if force == true
+			if @force == true
 				puts "Overwriting: ".light_red + "#{@name}/"
 				FileUtils.rm_rf(@name)
 			end
