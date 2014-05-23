@@ -15,16 +15,16 @@ require 'bukkit/version.rb'
 require 'bukkit/website.rb'
 
 module Bukkit
-	class Server
-		def initialize(name)
-			@name = name
-		end
-	end
+  class Server
+    def initialize(name)
+      @name = name
+    end
+  end
 
-	class Plugin
-		def initialize(name)
-			@name = name.downcase
-			@plugin_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{@name}").read)
-		end 
-	end
+  class Plugin
+    def initialize(name)
+      @name = name.downcase
+      @plugin_api = JSON.parse(open("http://api.bukget.org/3/plugins/bukkit/#{@name}").read)
+    end 
+  end
 end
