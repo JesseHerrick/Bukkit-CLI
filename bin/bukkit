@@ -23,49 +23,8 @@ command :new do |c|
 	c.option "--nostart", "Just creates a new server, doesn't start it."
 
 	c.action do |args, options|
-		rb       = options.rb
-		beta     = options.beta
-		dev      = options.dev
-		force    = options.force
-		nostart = options.nostart
-
-		name = args.shift
-
-		new_options = Hash.new
-
-		# If it doesn't have a name then just stop them right there.
-		abort "You didn't enter a server name.\nTry `bukkit new my-awesome-server-name`." if name.nil?
-
-		# Add the build to the new_options hash.
-		if rb
-			new_options.merge!(:build => :rb)
-		elsif beta
-			new_options.merge!(:build => :beta)
-		elsif dev
-			new_options.merge!(:build => :dev)
-		else
-			# If the user didn't give a build option then ask for it.
-			build = ask "Build [rb/beta/dev]: "
-			case build
-			when "rb", "recommended"
-				new_options.merge!(:build => :rb)
-			when "beta"
-				new_options.merge!(:build => :beta)
-			when "dev", "development"
-				new_options.merge!(:build => :dev)
-			else
-				abort "Invalid build option.".red
-			end
-		end
-
-		# Add the force option if it's needed. Adds the bool returned from 'force'.
-		force = false if force.nil?
-		new_options.merge!(:force => force)
-
-		# Now finally send the options to the method.
-		server = Bukkit::Server.new(name)
-		server.create(new_options)
-		Bukkit::Server.start unless nostart == true
+    puts "I'm sorry, but it looks like the Bukkit project has been discontinued.".red
+    puts "Check out this link to see what's going on: ".green + "http://bukkit.org/threads/mojang-and-the-bukkit-project.309715/"
 	end
 end
 alias_command :create, :new
